@@ -25,10 +25,10 @@ export default function SiteHeader() {
             fill="none"
             aria-hidden="true"
           >
-            <rect width="32" height="32" rx="9" fill="#F59E0B" />
+            <rect width="32" height="32" rx="9" fill="#0F2A43" />
             <path
               d="M8 24V13l8-6 8 6v11H8z M13 24v-8h6v8"
-              stroke="#0F2A43"
+              stroke="#FFFFFF"
               strokeWidth="2"
               strokeLinejoin="round"
             />

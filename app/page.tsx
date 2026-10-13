@@ -220,81 +220,41 @@ export default function HomePage() {
               every figure sourced
             </p>
           </div>
-          <div
-            className="hero-visual"
-            aria-label="Room measurement illustration"
-          >
-            <div className="visual-caption">
-              <span>GOOD PLANS START HERE</span>
-              <span>01 / MEASURE</span>
+          <aside className="hero-start" aria-label="Choose a project">
+            <p className="eyebrow">Start with your project</p>
+            <h2>What are you planning?</h2>
+            <div className="quick-projects">
+              {[
+                {
+                  title: "Paint a room",
+                  detail: "Wall area, paint quantity, and primer.",
+                  href: "/tools/interior-paint-calculator/",
+                },
+                {
+                  title: "Pour a concrete slab",
+                  detail: "Cubic yards, waste allowance, and bags.",
+                  href: "/tools/concrete-calculator/",
+                },
+                {
+                  title: "Lay a gravel base",
+                  detail: "Volume, estimated weight, and compaction.",
+                  href: "/tools/gravel-calculator/",
+                },
+              ].map((project, i) => (
+                <Link key={project.href} href={project.href}>
+                  <span className="quick-number">0{i + 1}</span>
+                  <span>
+                    <strong>{project.title}</strong>
+                    <small>{project.detail}</small>
+                  </span>
+                  <span aria-hidden="true">↗</span>
+                </Link>
+              ))}
             </div>
-            <svg viewBox="0 0 440 330" fill="none" aria-hidden="true">
-              <defs>
-                <pattern
-                  id="grid"
-                  width="22"
-                  height="22"
-                  patternUnits="userSpaceOnUse"
-                >
-                  <path d="M22 0H0V22" stroke="#7F9AAF" strokeOpacity=".12" />
-                </pattern>
-              </defs>
-              <rect width="440" height="330" fill="url(#grid)" />
-              <path
-                d="M90 240V98L225 46l130 60v142l-131 57z"
-                fill="#183B57"
-                stroke="#829CAF"
-                strokeWidth="1.5"
-              />
-              <path
-                d="M225 46v143L90 240 M225 189l130 59 M225 189v116"
-                stroke="#9CB1BF"
-                strokeWidth="1.5"
-              />
-              <path
-                d="M115 220V115l87-34v105z"
-                fill="#234B68"
-                stroke="#668AA1"
-              />
-              <path
-                d="M249 97l54 25v64l-54-25z"
-                fill="#F59E0B"
-                fillOpacity=".16"
-                stroke="#F59E0B"
-              />
-              <path d="M275 110v64 M249 129l54 25" stroke="#F59E0B" />
-              <path
-                d="M86 269l137 65 M81 260l9 19 M217 324l9 19 M254 312l116-51 M252 302l4 20 M365 251l9 19"
-                stroke="#F59E0B"
-                strokeWidth="1.5"
-              />
-              <text
-                x="137"
-                y="314"
-                fill="#F9BF53"
-                fontSize="13"
-                transform="rotate(25 137 314)"
-              >
-                Room length
-              </text>
-              <text
-                x="277"
-                y="306"
-                fill="#F9BF53"
-                fontSize="13"
-                transform="rotate(-25 277 306)"
-              >
-                Room width
-              </text>
-            </svg>
-            <div className="visual-footer">
-              <span className="visual-mark">↗</span>
-              <div>
-                <strong>From dimensions to decisions.</strong>
-                <p>Clear inputs. Visible formulas. Useful estimates.</p>
-              </div>
-            </div>
-          </div>
+            <p className="quick-note">
+              Free tools. Clear formulas. No sign-up.
+            </p>
+          </aside>
         </div>
       </section>
       <section id="calculators" className="section-space">
