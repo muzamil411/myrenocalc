@@ -8,42 +8,56 @@ export const metadata = buildMetadata({
   path: '/',
 })
 
-type CalcGroup = { name: string; items: string[] }
+type CalcItem = { name: string; href?: string }
+type CalcGroup = { name: string; items: CalcItem[] }
 
 const GROUPS: CalcGroup[] = [
   {
     name: 'Paint',
     items: [
-      'Interior paint calculator',
-      'Exterior paint calculator',
-      'Primer calculator',
-      'Paint cost estimator',
+      { name: 'Interior paint calculator', href: '/tools/interior-paint-calculator/' },
+      { name: 'Exterior paint calculator', href: '/tools/exterior-paint-calculator/' },
+      { name: 'Ceiling paint calculator', href: '/tools/ceiling-paint-calculator/' },
+      { name: 'Primer calculator', href: '/tools/primer-calculator/' },
+      { name: 'Paint cost estimator', href: '/tools/paint-cost-calculator/' },
     ],
   },
   {
     name: 'Concrete & Masonry',
-    items: ['Concrete slab calculator', 'Concrete bag calculator', 'Gravel calculator'],
+    items: [
+      { name: 'Concrete slab calculator' },
+      { name: 'Concrete bag calculator' },
+      { name: 'Gravel calculator' },
+    ],
   },
   {
     name: 'Flooring',
     items: [
-      'Flooring calculator',
-      'Tile calculator',
-      'Laminate box calculator',
-      'Hardwood estimator',
+      { name: 'Flooring calculator' },
+      { name: 'Tile calculator' },
+      { name: 'Laminate box calculator' },
+      { name: 'Hardwood estimator' },
     ],
   },
   {
     name: 'Drywall',
-    items: ['Drywall sheet calculator', 'Joint compound estimator'],
+    items: [{ name: 'Drywall sheet calculator' }, { name: 'Joint compound estimator' }],
   },
   {
     name: 'Lumber & Decking',
-    items: ['Board-foot calculator', 'Deck board estimator', 'Fence picket calculator'],
+    items: [
+      { name: 'Board-foot calculator' },
+      { name: 'Deck board estimator' },
+      { name: 'Fence picket calculator' },
+    ],
   },
   {
     name: 'Landscaping',
-    items: ['Mulch calculator', 'Topsoil calculator', 'Paver calculator'],
+    items: [
+      { name: 'Mulch calculator' },
+      { name: 'Topsoil calculator' },
+      { name: 'Paver calculator' },
+    ],
   },
 ]
 
@@ -105,11 +119,26 @@ export default function HomePage() {
               <h3 className="text-xl font-bold text-navy-900">{group.name}</h3>
               <ul className="mt-4 space-y-2">
                 {group.items.map((item) => (
-                  <li key={item} className="flex items-center justify-between gap-3 text-slate-700">
-                    <span>{item}</span>
-                    <span className="shrink-0 rounded-full bg-slate-100 px-3 py-1 text-xs font-semibold text-slate-500">
-                      Coming soon
-                    </span>
+                  <li key={item.name} className="flex items-center justify-between gap-3 text-slate-700">
+                    {item.href ? (
+                      <Link
+                        href={item.href}
+                        className="font-semibold text-navy-800 underline decoration-accent-500 decoration-2 underline-offset-2 hover:text-navy-900"
+                      >
+                        {item.name}
+                      </Link>
+                    ) : (
+                      <span>{item.name}</span>
+                    )}
+                    {item.href ? (
+                      <span className="shrink-0 rounded-full bg-accent-500/15 px-3 py-1 text-xs font-semibold text-accent-600">
+                        Live
+                      </span>
+                    ) : (
+                      <span className="shrink-0 rounded-full bg-slate-100 px-3 py-1 text-xs font-semibold text-slate-500">
+                        Coming soon
+                      </span>
+                    )}
                   </li>
                 ))}
               </ul>
@@ -137,21 +166,33 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Latest guides placeholder */}
+      {/* Project guides */}
       <section className="mx-auto max-w-5xl px-4 py-14">
         <h2 className="text-3xl font-bold text-navy-900">Project guides</h2>
         <p className="mt-3 max-w-2xl text-slate-600">
-          Step-by-step guides are on the way — starting with paint quantity: coverage rates,
-          measuring rooms, and the mistakes that waste money. Our calculators launch alongside
-          the guides that explain them.
+          Step-by-step guides that go with our calculators — starting with paint quantity:
+          coverage rates, measuring rooms, and the mistakes that waste money.
         </p>
-        <p className="mt-6 text-sm text-slate-500">
-          Want to know when the first tools go live?{' '}
-          <Link href="/contact/" className="font-semibold text-navy-800 underline decoration-accent-500 decoration-2 underline-offset-2">
-            Get in touch
-          </Link>
-          .
-        </p>
+        <ul className="mt-6 grid gap-3 md:grid-cols-2">
+          {[
+            { name: 'How much paint for a 12×12 room?', href: '/guides/how-much-paint-for-12x12-room/' },
+            { name: 'Paint coverage per gallon by type', href: '/guides/paint-coverage-per-gallon/' },
+            { name: 'How to measure a room for paint', href: '/guides/how-to-measure-room-for-paint/' },
+            { name: 'How many coats of paint do walls need?', href: '/guides/how-many-coats-of-paint/' },
+            { name: 'Exterior paint for a 2,000 sq ft house', href: '/guides/exterior-paint-for-2000-sq-ft-house/' },
+            { name: 'Paint cost per square foot (2026)', href: '/guides/paint-cost-per-square-foot/' },
+            { name: '7 paint quantity mistakes that waste money', href: '/guides/paint-quantity-mistakes/' },
+          ].map((g) => (
+            <li key={g.href}>
+              <Link
+                href={g.href}
+                className="block rounded-xl border border-slate-200 bg-white p-4 font-semibold text-navy-800 shadow-sm transition hover:border-accent-500 hover:text-navy-900"
+              >
+                {g.name}
+              </Link>
+            </li>
+          ))}
+        </ul>
       </section>
     </>
   )
