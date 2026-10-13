@@ -1214,3 +1214,26 @@ h2[id] {
     margin-bottom: 28px;
   }
 }
+
+.source-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 18px;
+  border-top: 1px solid #0f2a4314;
+  padding-top: 16px;
+}
+.article aside .source-chips a {
+  font-size: 11px;
+  text-decoration: none;
+  border: 1px solid #dce4e8;
+  padding: 7px 11px;
+  border-radius: 50px;
+  display: inline-flex;
+  gap: 10px;
+  align-items: center;
+  background: #fff;
+}
+.source-chips a:hover {
+  border-color: #b77915;
+}
