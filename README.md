@@ -31,4 +31,18 @@ account; no DNS changes needed for routine content deploys.
 ## Content
 
 Phase-1 MDX conventions (frontmatter fields, FAQ blocks) are documented in
-`content/README.md`. Phase 0 ships the foundation only — no calculator pages yet.
+`content/README.md`. The site currently has 9 calculators, 11 guides, the homepage, 5 company/policy pages,
+and a FAQ page. Paint is implemented, concrete/masonry is partially expanded, and
+future categories remain honestly marked Coming soon.
+
+## Premium presentation
+
+Shared page layouts preserve calculator formulas and existing page copy/SEO.
+The homepage uses project cards, trust principles, factual library counts, process steps,
+guides, FAQs and a CTA. Tool pages use CalculatorShell; guides use anchored
+tables of contents and real content-update dates. Fonts are served locally with licenses.
+
+Automatic Cloudflare builds require the Cloudflare Workers and Pages GitHub app
+to include this repository in its selected repository access. If pushes do not
+start builds, inspect Settings > Builds for a disconnected-account warning and
+verify the app installation before changing build or deployment commands.
