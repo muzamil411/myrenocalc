@@ -2558,3 +2558,13 @@ body {
     gap: 10px 12px;
   }
 }
+
+/* Consistent project-card sizing and clearer outlines. */
+.directory-grid{align-items:stretch;grid-auto-rows:1fr}
+.directory-card{display:flex;flex-direction:column;height:100%;border-color:#0f2a4333}
+.directory-card .category-description{min-height:44px}
+.directory-card ul{flex:1}
+.directory-card .card-bottom-link{margin-top:16px}
+.premium-card{border-color:#0f2a4333}
+.premium-card:hover{border-color:#0f2a4366}
+@media(max-width:700px){.directory-grid{grid-auto-rows:auto}.directory-card .category-description{min-height:0}}
