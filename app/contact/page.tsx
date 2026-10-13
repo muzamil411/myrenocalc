@@ -1,3 +1,4 @@
+import PageShell from '@/components/PageShell'
 import { buildMetadata } from '@/lib/seo'
 
 export const metadata = buildMetadata({
@@ -9,7 +10,7 @@ export const metadata = buildMetadata({
 
 export default function ContactPage() {
   return (
-    <div className="mx-auto max-w-3xl px-4 py-12">
+    <PageShell title={"Contact"} path="/contact/">
       <h1 className="text-4xl font-extrabold text-navy-900">Contact</h1>
       <div className="article mt-6">
         <p>
@@ -77,6 +78,6 @@ export default function ContactPage() {
           form submissions on our servers.
         </p>
       </form>
-    </div>
+    </PageShell>
   )
 }

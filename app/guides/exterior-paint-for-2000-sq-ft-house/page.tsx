@@ -1,3 +1,4 @@
+import PageShell from '@/components/PageShell'
 import Link from 'next/link'
 import Faq from '@/components/Faq'
 import Callout from '@/components/Callout'
@@ -40,7 +41,7 @@ const faqs = [
 
 export default function ExteriorPaint2000SqFtPage() {
   return (
-    <div className="mx-auto max-w-3xl px-4 py-12">
+    <PageShell title={"How Much Exterior Paint for a 2,000 Sq Ft House?"} path="/guides/exterior-paint-for-2000-sq-ft-house/" category="Paint" updated="2026-10-13" sections={[{"id":"section-1","title":"Worked example: single-story, 50 40 ft footprint"},{"id":"section-2","title":"Gallons by siding type"},{"id":"section-3","title":"Don't forget the gables"},{"id":"section-4","title":"Two-story homes and different footprints"},{"id":"section-5","title":"Primer for bare wood and masonry"},{"id":"section-6","title":"Trim, soffits, and fascia are separate"},{"id":"section-7","title":"Soffits, fascia, and trim: a quick sizing method"},{"id":"section-8","title":"Buying in 5-gallon buckets"},{"id":"section-9","title":"Timing and weather matter for exteriors"},{"id":"section-10","title":"Frequently asked questions"},{"id":"section-11","title":"Related"}]}>
       <h1 className="text-4xl font-extrabold text-navy-900">
         How Much Exterior Paint for a 2,000 Sq Ft House?
       </h1>
@@ -71,7 +72,7 @@ export default function ExteriorPaint2000SqFtPage() {
           </p>
         </Callout>
 
-        <h2>Worked example: single-story, 50 &times; 40 ft footprint</h2>
+        <h2 id="section-1">Worked example: single-story, 50 &times; 40 ft footprint</h2>
         <ol>
           <li>
             <strong>Perimeter:</strong> 2 &times; (50 + 40) = <strong>180 linear feet</strong>.
@@ -92,7 +93,7 @@ export default function ExteriorPaint2000SqFtPage() {
           </li>
         </ol>
 
-        <h2>Gallons by siding type</h2>
+        <h2 id="section-2">Gallons by siding type</h2>
         <table>
           <thead>
             <tr>
@@ -131,7 +132,7 @@ export default function ExteriorPaint2000SqFtPage() {
           enough that quart-level precision doesn&apos;t matter.
         </p>
 
-        <h2>Don&apos;t forget the gables</h2>
+        <h2 id="section-3">Don&apos;t forget the gables</h2>
         <p>
           The example above assumes flat 9-foot walls all around. If your house has gable ends
           — the triangular wall sections under the roof peaks — they add paintable area the
@@ -141,7 +142,7 @@ export default function ExteriorPaint2000SqFtPage() {
           house, 12% extra gable area would move smooth siding from 8 gallons to about 9.
         </p>
 
-        <h2>Two-story homes and different footprints</h2>
+        <h2 id="section-4">Two-story homes and different footprints</h2>
         <p>
           A two-story 2,000 sq ft house has a smaller footprint — say 32x32 ft — but roughly
           18 feet of wall height instead of 9. Perimeter 128 &times; 18 = 2,304 sq ft of gross
@@ -151,7 +152,7 @@ export default function ExteriorPaint2000SqFtPage() {
           calculator</Link> handles any footprint and height.
         </p>
 
-        <h2>Primer for bare wood and masonry</h2>
+        <h2 id="section-5">Primer for bare wood and masonry</h2>
         <p>
           Previously painted siding in sound condition needs only the two finish coats. But
           bare wood, new fiber-cement, or unpainted masonry should be primed first — primer
@@ -162,7 +163,7 @@ export default function ExteriorPaint2000SqFtPage() {
           <Link href="/tools/primer-calculator/">primer calculator</Link>.
         </p>
 
-        <h2>Trim, soffits, and fascia are separate</h2>
+        <h2 id="section-6">Trim, soffits, and fascia are separate</h2>
         <p>
           Keep trim, soffits, fascia boards, and shutters as their own line item. They&apos;re
           usually painted with a different product — often a glossier trim paint — and
@@ -171,7 +172,7 @@ export default function ExteriorPaint2000SqFtPage() {
           and buy it separately.
         </p>
 
-        <h2>Soffits, fascia, and trim: a quick sizing method</h2>
+        <h2 id="section-7">Soffits, fascia, and trim: a quick sizing method</h2>
         <p>
           Soffits (the underside of the roof overhang) and fascia (the vertical board at the
           roof edge) run the full perimeter of the house. For our 180-ft-perimeter example:
@@ -184,7 +185,7 @@ export default function ExteriorPaint2000SqFtPage() {
           siding gallons.
         </p>
 
-        <h2>Buying in 5-gallon buckets</h2>
+        <h2 id="section-8">Buying in 5-gallon buckets</h2>
         <p>
           Exterior jobs use enough paint that 5-gallon buckets make sense: 8 gallons is one
           5-gallon bucket plus three 1-gallon cans; 11 gallons is two 5-gallon buckets plus
@@ -195,7 +196,7 @@ export default function ExteriorPaint2000SqFtPage() {
           is visible; boxing prevents it.
         </p>
 
-        <h2>Timing and weather matter for exteriors</h2>
+        <h2 id="section-9">Timing and weather matter for exteriors</h2>
         <p>
           Exterior paint has a temperature and humidity range printed on the label — follow
           it, because paint applied outside its range may not cure properly, which wastes
@@ -206,10 +207,10 @@ export default function ExteriorPaint2000SqFtPage() {
           wet paint. A calm, overcast day in the label&apos;s temperature range is ideal.
         </p>
 
-        <h2>Frequently asked questions</h2>
+        <h2 id="section-10">Frequently asked questions</h2>
         <Faq items={faqs} />
 
-        <h2>Related</h2>
+        <h2 id="section-11">Related</h2>
         <ul>
           <li>
             <Link href="/tools/exterior-paint-calculator/">Exterior paint calculator</Link> —
@@ -229,6 +230,6 @@ export default function ExteriorPaint2000SqFtPage() {
           </li>
         </ul>
       </div>
-    </div>
+    </PageShell>
   )
 }

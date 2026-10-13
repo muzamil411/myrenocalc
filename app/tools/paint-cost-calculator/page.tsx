@@ -1,3 +1,5 @@
+import CalculatorShell from '@/components/CalculatorShell'
+import PageShell from '@/components/PageShell'
 import Link from 'next/link'
 import { buildMetadata, jsonLdFaq } from '@/lib/seo'
 import PaintCostCalculator from '@/components/calculators/PaintCostCalculator'
@@ -41,7 +43,7 @@ const faqs = [
 
 export default function PaintCostCalculatorPage() {
   return (
-    <div className="mx-auto max-w-3xl px-4 py-12">
+    <PageShell title={"Paint Cost Calculator"} path="/tools/paint-cost-calculator/" category="Paint">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLdFaq(faqs)) }}
@@ -69,11 +71,11 @@ export default function PaintCostCalculatorPage() {
       </div>
 
       <div className="mt-8">
-        <PaintCostCalculator />
+        <CalculatorShell><PaintCostCalculator /></CalculatorShell>
       </div>
 
       <div className="article mt-10">
-        <h2>How the math works</h2>
+        <h2 id="section-1">How the math works</h2>
         <Callout variant="method">
           <p>
             <strong>Paint cost</strong> = gallons × price per gallon. If you estimate from room
@@ -91,7 +93,7 @@ export default function PaintCostCalculatorPage() {
           </p>
         </Callout>
 
-        <h2>Worked example</h2>
+        <h2 id="section-2">Worked example</h2>
         <p>DIY repaint of a 12 × 12 room, 2 coats, mid-range paint at $45/gal, full supply list:</p>
         <ol>
           <li>Paint: 2 gallons × $45 = <strong>$90</strong></li>
@@ -107,7 +109,7 @@ export default function PaintCostCalculatorPage() {
           difference is your labor savings.
         </p>
 
-        <h2>Limitations</h2>
+        <h2 id="section-3">Limitations</h2>
         <Callout variant="limitation">
           <p>
             This is a materials-and-supplies budget, not a contractor quote — it excludes labor,
@@ -117,7 +119,7 @@ export default function PaintCostCalculatorPage() {
           </p>
         </Callout>
 
-        <h2>Frequently asked questions</h2>
+        <h2 id="section-4">Frequently asked questions</h2>
       </div>
 
       <div className="mt-4">
@@ -125,7 +127,7 @@ export default function PaintCostCalculatorPage() {
       </div>
 
       <div className="article mt-10">
-        <h2>Related calculators &amp; guides</h2>
+        <h2 id="section-5">Related calculators &amp; guides</h2>
         <ul>
           <li>
             <Link href="/tools/interior-paint-calculator/">Interior paint calculator</Link> — get
@@ -145,6 +147,6 @@ export default function PaintCostCalculatorPage() {
           </li>
         </ul>
       </div>
-    </div>
+    </PageShell>
   )
 }

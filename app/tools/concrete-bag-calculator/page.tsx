@@ -1,3 +1,5 @@
+import CalculatorShell from '@/components/CalculatorShell'
+import PageShell from '@/components/PageShell'
 import Link from 'next/link'
 import { buildMetadata, jsonLdFaq } from '@/lib/seo'
 import ConcreteBagCalculator from '@/components/calculators/ConcreteBagCalculator'
@@ -41,7 +43,7 @@ const faqs = [
 
 export default function ConcreteBagCalculatorPage() {
   return (
-    <div className="mx-auto max-w-3xl px-4 py-12">
+    <PageShell title={"Concrete Bag Calculator"} path="/tools/concrete-bag-calculator/" category="Concrete & masonry">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLdFaq(faqs)) }}
@@ -68,11 +70,11 @@ export default function ConcreteBagCalculatorPage() {
       </div>
 
       <div className="mt-8">
-        <ConcreteBagCalculator />
+        <CalculatorShell><ConcreteBagCalculator /></CalculatorShell>
       </div>
 
       <div className="article mt-10">
-        <h2>How the math works</h2>
+        <h2 id="section-1">How the math works</h2>
         <Callout variant="method">
           <p>
             <strong>Volume</strong> = length × width × (thickness ÷ 12) in feet, or entered
@@ -90,7 +92,7 @@ export default function ConcreteBagCalculatorPage() {
           </p>
         </Callout>
 
-        <h2>Worked example</h2>
+        <h2 id="section-2">Worked example</h2>
         <p>A 12 × 12 ft shed pad, 4 inches thick, using 80-lb bags:</p>
         <ol>
           <li>Volume = 12 × 12 × (4 ÷ 12) = 48 cu ft</li>
@@ -103,7 +105,7 @@ export default function ConcreteBagCalculatorPage() {
           break-even math in our Quikrete vs. ready-mix guide.
         </p>
 
-        <h2>Limitations</h2>
+        <h2 id="section-3">Limitations</h2>
         <Callout variant="limitation">
           <p>
             Bag yields are approximate per the manufacturer — actual yield varies slightly with
@@ -114,7 +116,7 @@ export default function ConcreteBagCalculatorPage() {
           </p>
         </Callout>
 
-        <h2>Frequently asked questions</h2>
+        <h2 id="section-4">Frequently asked questions</h2>
       </div>
 
       <div className="mt-4">
@@ -122,7 +124,7 @@ export default function ConcreteBagCalculatorPage() {
       </div>
 
       <div className="article mt-10">
-        <h2>Related calculators &amp; guides</h2>
+        <h2 id="section-5">Related calculators &amp; guides</h2>
         <ul>
           <li>
             <Link href="/tools/concrete-calculator/">Concrete calculator</Link> — cubic yards for
@@ -143,6 +145,6 @@ export default function ConcreteBagCalculatorPage() {
           </li>
         </ul>
       </div>
-    </div>
+    </PageShell>
   )
 }

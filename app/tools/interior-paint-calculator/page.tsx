@@ -1,3 +1,5 @@
+import CalculatorShell from '@/components/CalculatorShell'
+import PageShell from '@/components/PageShell'
 import Link from 'next/link'
 import { buildMetadata, jsonLdFaq } from '@/lib/seo'
 import InteriorPaintCalculator from '@/components/calculators/InteriorPaintCalculator'
@@ -41,7 +43,7 @@ const faqs = [
 
 export default function InteriorPaintCalculatorPage() {
   return (
-    <div className="mx-auto max-w-3xl px-4 py-12">
+    <PageShell title={"Interior Paint Calculator"} path="/tools/interior-paint-calculator/" category="Paint">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLdFaq(faqs)) }}
@@ -68,11 +70,11 @@ export default function InteriorPaintCalculatorPage() {
       </div>
 
       <div className="mt-8">
-        <InteriorPaintCalculator />
+        <CalculatorShell><InteriorPaintCalculator /></CalculatorShell>
       </div>
 
       <div className="article mt-10">
-        <h2>How the math works</h2>
+        <h2 id="section-1">How the math works</h2>
         <Callout variant="method">
           <p>
             <strong>Wall area</strong> = 2 × ceiling height × (length + width) − doors × 20 sq ft −
@@ -91,7 +93,7 @@ export default function InteriorPaintCalculatorPage() {
           </p>
         </Callout>
 
-        <h2>Worked example</h2>
+        <h2 id="section-2">Worked example</h2>
         <p>A 12 × 14 ft bedroom with 8 ft ceilings, 1 door, 2 windows, 2 coats:</p>
         <ol>
           <li>Wall area = 2 × 8 × (12 + 14) = 416 sq ft</li>
@@ -104,7 +106,7 @@ export default function InteriorPaintCalculatorPage() {
           that is the point. No black box.
         </p>
 
-        <h2>Limitations</h2>
+        <h2 id="section-3">Limitations</h2>
         <Callout variant="limitation">
           <p>
             This calculator assumes smooth to lightly textured walls. Heavily textured walls,
@@ -116,7 +118,7 @@ export default function InteriorPaintCalculatorPage() {
           </p>
         </Callout>
 
-        <h2>Frequently asked questions</h2>
+        <h2 id="section-4">Frequently asked questions</h2>
       </div>
 
       <div className="mt-4">
@@ -124,7 +126,7 @@ export default function InteriorPaintCalculatorPage() {
       </div>
 
       <div className="article mt-10">
-        <h2>Related calculators &amp; guides</h2>
+        <h2 id="section-5">Related calculators &amp; guides</h2>
         <ul>
           <li>
             <Link href="/tools/primer-calculator/">Primer calculator</Link> — primer by surface
@@ -152,6 +154,6 @@ export default function InteriorPaintCalculatorPage() {
           </li>
         </ul>
       </div>
-    </div>
+    </PageShell>
   )
 }

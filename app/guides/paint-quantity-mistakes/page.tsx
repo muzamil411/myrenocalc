@@ -1,3 +1,4 @@
+import PageShell from '@/components/PageShell'
 import Link from 'next/link'
 import Faq from '@/components/Faq'
 import Callout from '@/components/Callout'
@@ -35,7 +36,7 @@ const faqs = [
 
 export default function PaintQuantityMistakesPage() {
   return (
-    <div className="mx-auto max-w-3xl px-4 py-12">
+    <PageShell title={"7 Paint Quantity Mistakes That Waste Money"} path="/guides/paint-quantity-mistakes/" category="Paint" updated="2026-10-13" sections={[{"id":"section-1","title":"Mistake 1 — Forgetting the second coat in the math"},{"id":"section-2","title":"Mistake 2 — Ignoring new-drywall porosity"},{"id":"section-3","title":"Mistake 3 — Skipping primer on dark-to-light color changes"},{"id":"section-4","title":"Mistake 4 — Buying the exact calculated amount with no buffer"},{"id":"section-5","title":"Mistake 5 — Forgetting the ceiling"},{"id":"section-6","title":"Mistake 6 — One coverage rate for every surface"},{"id":"section-7","title":"Mistake 7 — Cheap paint that needs three coats"},{"id":"section-8","title":"The one-trip checklist"},{"id":"section-9","title":"Frequently asked questions"},{"id":"section-10","title":"Related"}]}>
       <h1 className="text-4xl font-extrabold text-navy-900">
         7 Paint Quantity Mistakes That Waste Money
       </h1>
@@ -52,7 +53,7 @@ export default function PaintQuantityMistakesPage() {
           mistakes we see most often, each with what it costs and how to avoid it.
         </p>
 
-        <h2>Mistake 1 — Forgetting the second coat in the math</h2>
+        <h2 id="section-1">Mistake 1 — Forgetting the second coat in the math</h2>
         <p>
           <strong>What happens:</strong> coverage rates (350 sq ft/gal) are per-coat figures.
           People divide their wall area by 350 once and buy that — exactly half the paint they
@@ -72,7 +73,7 @@ export default function PaintQuantityMistakesPage() {
           guide</Link> helps you pick the right number.
         </p>
 
-        <h2>Mistake 2 — Ignoring new-drywall porosity</h2>
+        <h2 id="section-2">Mistake 2 — Ignoring new-drywall porosity</h2>
         <p>
           <strong>What happens:</strong> bare drywall and joint compound soak up the first coat
           like a sponge. The mudded seams flash through as dull bands, and the finish coat
@@ -89,7 +90,7 @@ export default function PaintQuantityMistakesPage() {
           cheaper per gallon than finish paint and exists precisely for this job.
         </p>
 
-        <h2>Mistake 3 — Skipping primer on dark-to-light color changes</h2>
+        <h2 id="section-3">Mistake 3 — Skipping primer on dark-to-light color changes</h2>
         <p>
           <strong>What happens:</strong> deep reds, navies, and dark greens ghost through light
           colors even after two finish coats, leaving a patchy, unprofessional result.
@@ -107,7 +108,7 @@ export default function PaintQuantityMistakesPage() {
           changes.
         </p>
 
-        <h2>Mistake 4 — Buying the exact calculated amount with no buffer</h2>
+        <h2 id="section-4">Mistake 4 — Buying the exact calculated amount with no buffer</h2>
         <p>
           <strong>What happens:</strong> the math says 1.99 gallons, you buy exactly 2 gallons,
           and then cut-in waste, roller absorption, and the paint left in the tray eat the
@@ -124,7 +125,7 @@ export default function PaintQuantityMistakesPage() {
           the only reliable touch-up supply.
         </p>
 
-        <h2>Mistake 5 — Forgetting the ceiling</h2>
+        <h2 id="section-5">Mistake 5 — Forgetting the ceiling</h2>
         <p>
           <strong>What happens:</strong> the wall math is perfect, and then you realize the
           ceiling needs paint too — in a different product (flat ceiling paint, not wall
@@ -143,7 +144,7 @@ export default function PaintQuantityMistakesPage() {
           ceiling is popcorn or heavily textured, add about 25% more paint (estimate).
         </p>
 
-        <h2>Mistake 6 — One coverage rate for every surface</h2>
+        <h2 id="section-6">Mistake 6 — One coverage rate for every surface</h2>
         <p>
           <strong>What happens:</strong> the 350 sq ft/gal rule gets applied to textured walls,
           brick, and exteriors where it doesn&apos;t belong. Smooth interior latex and stucco are
@@ -162,7 +163,7 @@ export default function PaintQuantityMistakesPage() {
           (estimates), 150-250 for heavily textured finishes.
         </p>
 
-        <h2>Mistake 7 — Cheap paint that needs three coats</h2>
+        <h2 id="section-7">Mistake 7 — Cheap paint that needs three coats</h2>
         <p>
           <strong>What happens:</strong> budget paint ($20-30/gal in 2026) has less pigment and
           weaker hiding. On a color change it often needs three coats where mid-range paint
@@ -190,7 +191,7 @@ export default function PaintQuantityMistakesPage() {
           </p>
         </Callout>
 
-        <h2>The one-trip checklist</h2>
+        <h2 id="section-8">The one-trip checklist</h2>
         <p>
           Run through this before you leave for the store and you&apos;ll dodge all seven
           mistakes at once:
@@ -206,10 +207,10 @@ export default function PaintQuantityMistakesPage() {
           <li>Add one extra quart of each wall color for touch-ups.</li>
         </ol>
 
-        <h2>Frequently asked questions</h2>
+        <h2 id="section-9">Frequently asked questions</h2>
         <Faq items={faqs} />
 
-        <h2>Related</h2>
+        <h2 id="section-10">Related</h2>
         <ul>
           <li>
             <Link href="/tools/interior-paint-calculator/">Interior paint calculator</Link> —
@@ -229,6 +230,6 @@ export default function PaintQuantityMistakesPage() {
           </li>
         </ul>
       </div>
-    </div>
+    </PageShell>
   )
 }

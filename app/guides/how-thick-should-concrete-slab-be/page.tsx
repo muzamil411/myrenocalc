@@ -1,3 +1,4 @@
+import PageShell from '@/components/PageShell'
 import Link from 'next/link'
 import { buildMetadata, jsonLdFaq } from '@/lib/seo'
 import Faq from '@/components/Faq'
@@ -40,7 +41,7 @@ const faqs = [
 
 export default function SlabThicknessPage() {
   return (
-    <div className="mx-auto max-w-3xl px-4 py-12">
+    <PageShell title={"How Thick Should a Concrete Slab Be?"} path="/guides/how-thick-should-concrete-slab-be/" category="Concrete & masonry" updated="2026-10-13" sections={[{"id":"section-1","title":"Thickness by use case"},{"id":"section-2","title":"What each extra inch actually buys"},{"id":"section-3","title":"The base matters as much as the slab"},{"id":"section-4","title":"Two traps to avoid"},{"id":"section-5","title":"Frequently asked questions"},{"id":"section-6","title":"Related calculators & guides"}]}>
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLdFaq(faqs)) }}
@@ -65,7 +66,7 @@ export default function SlabThicknessPage() {
           what each inch buys you in strength, and where the code minimums sit.
         </p>
 
-        <h2>Thickness by use case</h2>
+        <h2 id="section-1">Thickness by use case</h2>
         <table>
           <thead>
             <tr>
@@ -109,7 +110,7 @@ export default function SlabThicknessPage() {
           floor slabs (R506.1) — anything thinner is not a slab.
         </p>
 
-        <h2>What each extra inch actually buys</h2>
+        <h2 id="section-2">What each extra inch actually buys</h2>
         <p>
           Concrete fails in bending, and bending strength scales with the <em>square</em> of
           thickness. That is the key fact most thickness guides bury:
@@ -129,7 +130,7 @@ export default function SlabThicknessPage() {
           better value in the project.
         </p>
 
-        <h2>The base matters as much as the slab</h2>
+        <h2 id="section-3">The base matters as much as the slab</h2>
         <p>
           A 6-inch slab on mud performs worse than a 4-inch slab on properly compacted base.
           The standard residential build is <strong>4 inches of compacted gravel</strong> under
@@ -138,7 +139,7 @@ export default function SlabThicknessPage() {
           paid for is the thickness that works.
         </p>
 
-        <h2>Two traps to avoid</h2>
+        <h2 id="section-4">Two traps to avoid</h2>
         <ul>
           <li>
             <strong>The 2×4 trap.</strong> A slab formed with standard 2×4 lumber is only 3.5
@@ -162,7 +163,7 @@ export default function SlabThicknessPage() {
           </p>
         </Callout>
 
-        <h2>Frequently asked questions</h2>
+        <h2 id="section-5">Frequently asked questions</h2>
       </div>
 
       <div className="mt-4">
@@ -170,7 +171,7 @@ export default function SlabThicknessPage() {
       </div>
 
       <div className="article mt-10">
-        <h2>Related calculators &amp; guides</h2>
+        <h2 id="section-6">Related calculators &amp; guides</h2>
         <ul>
           <li>
             <Link href="/tools/concrete-calculator/">Concrete calculator</Link> — yards for your
@@ -190,6 +191,6 @@ export default function SlabThicknessPage() {
           </li>
         </ul>
       </div>
-    </div>
+    </PageShell>
   )
 }

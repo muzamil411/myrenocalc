@@ -1,3 +1,4 @@
+import PageShell from '@/components/PageShell'
 import Link from 'next/link'
 import Faq from '@/components/Faq'
 import Callout from '@/components/Callout'
@@ -40,7 +41,7 @@ const faqs = [
 
 export default function HowMuchPaint12x12Page() {
   return (
-    <div className="mx-auto max-w-3xl px-4 py-12">
+    <PageShell title={"How Much Paint for a 12x12 Room? (Exact Answer)"} path="/guides/how-much-paint-for-12x12-room/" category="Paint" updated="2026-10-13" sections={[{"id":"section-1","title":"The 12x12 calculation, step by step"},{"id":"section-2","title":"Paint needed by room size (8-ft ceilings, 1 door + 1 window, 2 coats)"},{"id":"section-3","title":"Don't forget the ceiling"},{"id":"section-4","title":"Primer: when you need it and how much"},{"id":"section-5","title":"Buy an extra quart beyond the calculation"},{"id":"section-6","title":"What changes the answer"},{"id":"section-7","title":"What if only one wall is an accent color?"},{"id":"section-8","title":"Does sheen change the quantity?"},{"id":"section-9","title":"Frequently asked questions"},{"id":"section-10","title":"Related"}]}>
       <h1 className="text-4xl font-extrabold text-navy-900">
         How Much Paint for a 12x12 Room? (Exact Answer)
       </h1>
@@ -73,7 +74,7 @@ export default function HowMuchPaint12x12Page() {
           </p>
         </Callout>
 
-        <h2>The 12x12 calculation, step by step</h2>
+        <h2 id="section-1">The 12x12 calculation, step by step</h2>
         <ol>
           <li>
             <strong>Wall area:</strong> 2 &times; 8 &times; (12 + 12) = 384 sq ft of gross wall.
@@ -96,7 +97,7 @@ export default function HowMuchPaint12x12Page() {
           absorption, cut-in waste, and the paint left in the tray.
         </p>
 
-        <h2>Paint needed by room size (8-ft ceilings, 1 door + 1 window, 2 coats)</h2>
+        <h2 id="section-2">Paint needed by room size (8-ft ceilings, 1 door + 1 window, 2 coats)</h2>
         <table>
           <thead>
             <tr>
@@ -149,7 +150,7 @@ export default function HowMuchPaint12x12Page() {
           <Link href="/guides/how-to-measure-room-for-paint/">measuring a room for paint</Link>.
         </p>
 
-        <h2>Don&apos;t forget the ceiling</h2>
+        <h2 id="section-3">Don&apos;t forget the ceiling</h2>
         <p>
           The table above is walls only. A 12x12 ceiling is 12 &times; 12 = 144 sq ft. Two coats
           at 350 sq ft/gal need 144 &times; 2 &divide; 350 = 0.82 gallons, which rounds up to{' '}
@@ -163,7 +164,7 @@ export default function HowMuchPaint12x12Page() {
           gallons</strong>.
         </p>
 
-        <h2>Primer: when you need it and how much</h2>
+        <h2 id="section-4">Primer: when you need it and how much</h2>
         <p>
           Previously painted walls in decent shape usually don&apos;t need primer — but three common
           situations do: new (unpainted) drywall, a dark-to-light color change, and patched or
@@ -180,7 +181,7 @@ export default function HowMuchPaint12x12Page() {
           need</Link> for the full picture.
         </p>
 
-        <h2>Buy an extra quart beyond the calculation</h2>
+        <h2 id="section-5">Buy an extra quart beyond the calculation</h2>
         <p>
           The round-up-to-the-nearest-quart rule already gives you a small buffer, but keep one
           extra quart of each wall color on hand for touch-ups. Scuffs, nail holes from hanging
@@ -190,7 +191,7 @@ export default function HowMuchPaint12x12Page() {
           years.
         </p>
 
-        <h2>What changes the answer</h2>
+        <h2 id="section-6">What changes the answer</h2>
         <ul>
           <li>
             <strong>9-foot ceilings:</strong> 2 &times; 9 &times; 24 &minus; 35 = 397 sq ft of
@@ -212,7 +213,7 @@ export default function HowMuchPaint12x12Page() {
           </li>
         </ul>
 
-        <h2>What if only one wall is an accent color?</h2>
+        <h2 id="section-7">What if only one wall is an accent color?</h2>
         <p>
           One 12-foot wall at 8-foot ceilings is 12 &times; 8 = 96 sq ft. If that wall has no
           door or window, two coats need 96 &times; 2 &divide; 350 = 0.55 gallons, which rounds
@@ -222,7 +223,7 @@ export default function HowMuchPaint12x12Page() {
           normal calculation minus the accent wall&apos;s area.
         </p>
 
-        <h2>Does sheen change the quantity?</h2>
+        <h2 id="section-8">Does sheen change the quantity?</h2>
         <p>
           Slightly. The coverage table in our{' '}
           <Link href="/guides/paint-coverage-per-gallon/">paint coverage guide</Link> lists
@@ -233,10 +234,10 @@ export default function HowMuchPaint12x12Page() {
           separately by the quart anyway.
         </p>
 
-        <h2>Frequently asked questions</h2>
+        <h2 id="section-9">Frequently asked questions</h2>
         <Faq items={faqs} />
 
-        <h2>Related</h2>
+        <h2 id="section-10">Related</h2>
         <ul>
           <li>
             <Link href="/tools/interior-paint-calculator/">Interior paint calculator</Link> —
@@ -256,6 +257,6 @@ export default function HowMuchPaint12x12Page() {
           </li>
         </ul>
       </div>
-    </div>
+    </PageShell>
   )
 }

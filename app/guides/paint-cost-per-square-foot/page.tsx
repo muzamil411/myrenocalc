@@ -1,3 +1,4 @@
+import PageShell from '@/components/PageShell'
 import Link from 'next/link'
 import Faq from '@/components/Faq'
 import Callout from '@/components/Callout'
@@ -40,7 +41,7 @@ const faqs = [
 
 export default function PaintCostPerSquareFootPage() {
   return (
-    <div className="mx-auto max-w-3xl px-4 py-12">
+    <PageShell title={"Interior Paint Cost Per Square Foot (2026)"} path="/guides/paint-cost-per-square-foot/" category="Paint" updated="2026-10-13" sections={[{"id":"section-1","title":"Materials cost per square foot by paint tier"},{"id":"section-2","title":"What that means for a real room"},{"id":"section-3","title":"Professional labor: 2026 figures"},{"id":"section-4","title":"DIY vs. pro: the 12x12 bedroom compared"},{"id":"section-5","title":"Where the money goes on a pro job"},{"id":"section-6","title":"Saving money without buying cheap paint"},{"id":"section-7","title":"What drives the cost up or down"},{"id":"section-8","title":"Frequently asked questions"},{"id":"section-9","title":"Related"}]}>
       <h1 className="text-4xl font-extrabold text-navy-900">
         Interior Paint Cost Per Square Foot (2026)
       </h1>
@@ -59,7 +60,7 @@ export default function PaintCostPerSquareFootPage() {
           derived per-square-foot figures are labeled estimates.
         </p>
 
-        <h2>Materials cost per square foot by paint tier</h2>
+        <h2 id="section-1">Materials cost per square foot by paint tier</h2>
         <p>
           At the standard coverage of 350 sq ft/gal, one coat needs 1 &divide; 350 = 0.0029
           gallons per square foot of wall, or about 0.29 gallons per 100 sq ft. Two coats
@@ -105,7 +106,7 @@ export default function PaintCostPerSquareFootPage() {
           <Link href="/tools/primer-calculator/">primer calculator</Link>).
         </p>
 
-        <h2>What that means for a real room</h2>
+        <h2 id="section-2">What that means for a real room</h2>
         <p>
           A <Link href="/guides/how-much-paint-for-12x12-room/">12x12 room</Link> has 349 sq ft
           of wall and needs 2 gallons for two coats. Paint cost by tier:
@@ -121,7 +122,7 @@ export default function PaintCostPerSquareFootPage() {
           and a tray with liners $5-10. All supply prices are estimates.
         </p>
 
-        <h2>Professional labor: 2026 figures</h2>
+        <h2 id="section-3">Professional labor: 2026 figures</h2>
         <p>
           Per allbetterapp.com&apos;s 2026 interior painting costs, professional work runs{' '}
           <strong>$350–800 for a standard bedroom</strong> and <strong>$4,200–11,500 for a
@@ -139,7 +140,7 @@ export default function PaintCostPerSquareFootPage() {
           </p>
         </Callout>
 
-        <h2>DIY vs. pro: the 12x12 bedroom compared</h2>
+        <h2 id="section-4">DIY vs. pro: the 12x12 bedroom compared</h2>
         <table>
           <thead>
             <tr>
@@ -177,7 +178,7 @@ export default function PaintCostPerSquareFootPage() {
           jobs the pro premium buys speed and consistency that are hard to match solo.
         </p>
 
-        <h2>Where the money goes on a pro job</h2>
+        <h2 id="section-5">Where the money goes on a pro job</h2>
         <p>
           On a professional job, materials are typically the smaller slice — often roughly a
           quarter to a third of the total, with labor taking the rest (estimate; ratios vary
@@ -194,7 +195,7 @@ export default function PaintCostPerSquareFootPage() {
           paying for a third coat of labor. Give the pro a paint that covers in two coats.
         </p>
 
-        <h2>Saving money without buying cheap paint</h2>
+        <h2 id="section-6">Saving money without buying cheap paint</h2>
         <ul>
           <li>
             <strong>Buy mid-range, not budget.</strong> At $35-50/gal (2026), mid-range paint
@@ -222,7 +223,7 @@ export default function PaintCostPerSquareFootPage() {
           </li>
         </ul>
 
-        <h2>What drives the cost up or down</h2>
+        <h2 id="section-7">What drives the cost up or down</h2>
         <ul>
           <li>
             <strong>Prep work.</strong> Patching, sanding, caulking, and masking often take
@@ -252,10 +253,10 @@ export default function PaintCostPerSquareFootPage() {
           </li>
         </ul>
 
-        <h2>Frequently asked questions</h2>
+        <h2 id="section-8">Frequently asked questions</h2>
         <Faq items={faqs} />
 
-        <h2>Related</h2>
+        <h2 id="section-9">Related</h2>
         <ul>
           <li>
             <Link href="/tools/paint-cost-calculator/">Paint cost estimator</Link> — estimate
@@ -275,6 +276,6 @@ export default function PaintCostPerSquareFootPage() {
           </li>
         </ul>
       </div>
-    </div>
+    </PageShell>
   )
 }

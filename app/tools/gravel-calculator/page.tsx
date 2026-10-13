@@ -1,3 +1,5 @@
+import CalculatorShell from '@/components/CalculatorShell'
+import PageShell from '@/components/PageShell'
 import Link from 'next/link'
 import { buildMetadata, jsonLdFaq } from '@/lib/seo'
 import GravelCalculator from '@/components/calculators/GravelCalculator'
@@ -41,7 +43,7 @@ const faqs = [
 
 export default function GravelCalculatorPage() {
   return (
-    <div className="mx-auto max-w-3xl px-4 py-12">
+    <PageShell title={"Gravel Calculator"} path="/tools/gravel-calculator/" category="Concrete & masonry">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLdFaq(faqs)) }}
@@ -68,11 +70,11 @@ export default function GravelCalculatorPage() {
       </div>
 
       <div className="mt-8">
-        <GravelCalculator />
+        <CalculatorShell><GravelCalculator /></CalculatorShell>
       </div>
 
       <div className="article mt-10">
-        <h2>How the math works</h2>
+        <h2 id="section-1">How the math works</h2>
         <Callout variant="method">
           <p>
             <strong>Volume</strong> = length × width × (depth ÷ 12) in feet, then ÷ 27 for cubic
@@ -86,7 +88,7 @@ export default function GravelCalculatorPage() {
           </p>
         </Callout>
 
-        <h2>Worked example</h2>
+        <h2 id="section-2">Worked example</h2>
         <p>A 20 × 10 ft driveway, 4 inches of crushed stone, 10% compaction allowance:</p>
         <ol>
           <li>Volume = 20 × 10 × (4 ÷ 12) = 66.67 cu ft</li>
@@ -100,7 +102,7 @@ export default function GravelCalculatorPage() {
           that is the point. No black box.
         </p>
 
-        <h2>Limitations</h2>
+        <h2 id="section-3">Limitations</h2>
         <Callout variant="limitation">
           <p>
             The tons figure is an estimate by design: bulk density varies with stone size,
@@ -111,7 +113,7 @@ export default function GravelCalculatorPage() {
           </p>
         </Callout>
 
-        <h2>Frequently asked questions</h2>
+        <h2 id="section-4">Frequently asked questions</h2>
       </div>
 
       <div className="mt-4">
@@ -119,7 +121,7 @@ export default function GravelCalculatorPage() {
       </div>
 
       <div className="article mt-10">
-        <h2>Related calculators &amp; guides</h2>
+        <h2 id="section-5">Related calculators &amp; guides</h2>
         <ul>
           <li>
             <Link href="/tools/concrete-calculator/">Concrete calculator</Link> — cubic yards for
@@ -137,6 +139,6 @@ export default function GravelCalculatorPage() {
           </li>
         </ul>
       </div>
-    </div>
+    </PageShell>
   )
 }

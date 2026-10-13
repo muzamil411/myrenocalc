@@ -1,3 +1,4 @@
+import PageShell from '@/components/PageShell'
 import Link from 'next/link'
 import { buildMetadata, jsonLdFaq } from '@/lib/seo'
 import Faq from '@/components/Faq'
@@ -35,7 +36,7 @@ const faqs = [
 
 export default function YardOfConcreteCoverPage() {
   return (
-    <div className="mx-auto max-w-3xl px-4 py-12">
+    <PageShell title={"How Much Does a Yard of Concrete Cover?"} path="/guides/how-much-does-a-yard-of-concrete-cover/" category="Concrete & masonry" updated="2026-10-13" sections={[{"id":"section-1","title":"Coverage per cubic yard by thickness"},{"id":"section-2","title":"Common projects, translated to yards"},{"id":"section-3","title":"What a yard costs in 2026"},{"id":"section-4","title":"Frequently asked questions"},{"id":"section-5","title":"Related calculators & guides"}]}>
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLdFaq(faqs)) }}
@@ -62,7 +63,7 @@ export default function YardOfConcreteCoverPage() {
           wasted half-yard, so it is worth seeing the numbers laid out.
         </p>
 
-        <h2>Coverage per cubic yard by thickness</h2>
+        <h2 id="section-1">Coverage per cubic yard by thickness</h2>
         <table>
           <thead>
             <tr>
@@ -104,7 +105,7 @@ export default function YardOfConcreteCoverPage() {
           These are exact geometric coverage — always add 5–10% waste on top for the real order.
         </p>
 
-        <h2>Common projects, translated to yards</h2>
+        <h2 id="section-2">Common projects, translated to yards</h2>
         <table>
           <thead>
             <tr>
@@ -154,7 +155,7 @@ export default function YardOfConcreteCoverPage() {
           exact dimensions.
         </p>
 
-        <h2>What a yard costs in 2026</h2>
+        <h2 id="section-3">What a yard costs in 2026</h2>
         <p>
           2026 pricing guides put standard residential ready-mix at roughly{' '}
           <strong>$125–$180 per cubic yard delivered</strong> (allbetterapp.com: $125–$195;
@@ -189,7 +190,7 @@ export default function YardOfConcreteCoverPage() {
           </p>
         </Callout>
 
-        <h2>Frequently asked questions</h2>
+        <h2 id="section-4">Frequently asked questions</h2>
       </div>
 
       <div className="mt-4">
@@ -197,7 +198,7 @@ export default function YardOfConcreteCoverPage() {
       </div>
 
       <div className="article mt-10">
-        <h2>Related calculators &amp; guides</h2>
+        <h2 id="section-5">Related calculators &amp; guides</h2>
         <ul>
           <li>
             <Link href="/tools/concrete-calculator/">Concrete calculator</Link> — exact yards for
@@ -218,6 +219,6 @@ export default function YardOfConcreteCoverPage() {
           </li>
         </ul>
       </div>
-    </div>
+    </PageShell>
   )
 }

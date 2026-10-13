@@ -1,3 +1,5 @@
+import CalculatorShell from '@/components/CalculatorShell'
+import PageShell from '@/components/PageShell'
 import Link from 'next/link'
 import { buildMetadata, jsonLdFaq } from '@/lib/seo'
 import FootingCalculator from '@/components/calculators/FootingCalculator'
@@ -41,7 +43,7 @@ const faqs = [
 
 export default function FootingCalculatorPage() {
   return (
-    <div className="mx-auto max-w-3xl px-4 py-12">
+    <PageShell title={"Footing Concrete Calculator"} path="/tools/footing-concrete-calculator/" category="Concrete & masonry">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLdFaq(faqs)) }}
@@ -69,11 +71,11 @@ export default function FootingCalculatorPage() {
       </div>
 
       <div className="mt-8">
-        <FootingCalculator />
+        <CalculatorShell><FootingCalculator /></CalculatorShell>
       </div>
 
       <div className="article mt-10">
-        <h2>How the math works</h2>
+        <h2 id="section-1">How the math works</h2>
         <Callout variant="method">
           <p>
             <strong>Volume</strong> = length (ft) × (width in ÷ 12) × (depth in ÷ 12). A footing
@@ -89,7 +91,7 @@ export default function FootingCalculatorPage() {
           </p>
         </Callout>
 
-        <h2>Worked example</h2>
+        <h2 id="section-2">Worked example</h2>
         <p>A footing 24 ft long, 16 in wide, 12 in deep, using 80-lb bags:</p>
         <ol>
           <li>Volume = 24 × (16 ÷ 12) × (12 ÷ 12) = 24 × 1.333 × 1 = <strong>32 cu ft</strong></li>
@@ -103,7 +105,7 @@ export default function FootingCalculatorPage() {
           that is the point. No black box.
         </p>
 
-        <h2>Limitations</h2>
+        <h2 id="section-3">Limitations</h2>
         <Callout variant="limitation">
           <p>
             Real footing excavations are not perfect rectangles — bell bottoms, caved walls, and
@@ -115,7 +117,7 @@ export default function FootingCalculatorPage() {
           </p>
         </Callout>
 
-        <h2>Frequently asked questions</h2>
+        <h2 id="section-4">Frequently asked questions</h2>
       </div>
 
       <div className="mt-4">
@@ -123,7 +125,7 @@ export default function FootingCalculatorPage() {
       </div>
 
       <div className="article mt-10">
-        <h2>Related calculators &amp; guides</h2>
+        <h2 id="section-5">Related calculators &amp; guides</h2>
         <ul>
           <li>
             <Link href="/tools/concrete-calculator/">Concrete calculator</Link> — cubic yards for
@@ -145,6 +147,6 @@ export default function FootingCalculatorPage() {
           </li>
         </ul>
       </div>
-    </div>
+    </PageShell>
   )
 }

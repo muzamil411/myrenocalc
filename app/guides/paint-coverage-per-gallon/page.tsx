@@ -1,3 +1,4 @@
+import PageShell from '@/components/PageShell'
 import Link from 'next/link'
 import Faq from '@/components/Faq'
 import Callout from '@/components/Callout'
@@ -35,7 +36,7 @@ const faqs = [
 
 export default function PaintCoveragePerGallonPage() {
   return (
-    <div className="mx-auto max-w-3xl px-4 py-12">
+    <PageShell title={"Paint Coverage Per Gallon by Type"} path="/guides/paint-coverage-per-gallon/" category="Paint" updated="2026-10-13" sections={[{"id":"section-1","title":"Coverage table by paint type"},{"id":"section-2","title":"What the coverage number assumes"},{"id":"section-3","title":"Four factors that change your real coverage"},{"id":"section-4","title":"How to read a product data sheet"},{"id":"section-5","title":"Why two brands' 350 aren't equal"},{"id":"section-6","title":"How to use these numbers"},{"id":"section-7","title":"Frequently asked questions"},{"id":"section-8","title":"Related"}]}>
       <h1 className="text-4xl font-extrabold text-navy-900">
         Paint Coverage Per Gallon by Type
       </h1>
@@ -55,7 +56,7 @@ export default function PaintCoveragePerGallonPage() {
           labeled estimates.
         </p>
 
-        <h2>Coverage table by paint type</h2>
+        <h2 id="section-1">Coverage table by paint type</h2>
         <table>
           <thead>
             <tr>
@@ -128,7 +129,7 @@ export default function PaintCoveragePerGallonPage() {
           </p>
         </Callout>
 
-        <h2>What the coverage number assumes</h2>
+        <h2 id="section-2">What the coverage number assumes</h2>
         <p>
           Every figure in the table is a <strong>per-coat</strong> rate on a properly prepared
           surface. Two coats doubles the paint — the 350 figure does not mean one gallon does
@@ -137,7 +138,7 @@ export default function PaintCoveragePerGallonPage() {
           deviates from that panel pulls your actual coverage down.
         </p>
 
-        <h2>Four factors that change your real coverage</h2>
+        <h2 id="section-3">Four factors that change your real coverage</h2>
         <h3>1. Porosity of the surface</h3>
         <p>
           New drywall, bare wood, and fresh plaster are thirsty — they soak the first coat into
@@ -173,7 +174,7 @@ export default function PaintCoveragePerGallonPage() {
           calculator</Link> lets you do.
         </p>
 
-        <h2>How to read a product data sheet</h2>
+        <h2 id="section-4">How to read a product data sheet</h2>
         <p>
           The coverage table above gives you planning figures, but the authoritative number
           for the exact can in your hand is always the manufacturer&apos;s product data sheet
@@ -201,7 +202,7 @@ export default function PaintCoveragePerGallonPage() {
           </li>
         </ul>
 
-        <h2>Why two brands&apos; &ldquo;350&rdquo; aren&apos;t equal</h2>
+        <h2 id="section-5">Why two brands&apos; &ldquo;350&rdquo; aren&apos;t equal</h2>
         <p>
           Two paints can both claim 350 sq ft/gal yet behave differently on your wall. The
           printed spread rate is about <em>area covered</em>, not about <em>hide</em> — how
@@ -219,7 +220,7 @@ export default function PaintCoveragePerGallonPage() {
           breakdown</Link> shows.
         </p>
 
-        <h2>How to use these numbers</h2>
+        <h2 id="section-6">How to use these numbers</h2>
         <p>
           The formula is always the same: <strong>(area &times; coats) &divide; coverage per
           gallon, rounded up to the nearest quarter gallon</strong>. Pick the coverage rate for
@@ -231,10 +232,10 @@ export default function PaintCoveragePerGallonPage() {
           <Link href="/guides/how-to-measure-room-for-paint/">measuring guide</Link>.
         </p>
 
-        <h2>Frequently asked questions</h2>
+        <h2 id="section-7">Frequently asked questions</h2>
         <Faq items={faqs} />
 
-        <h2>Related</h2>
+        <h2 id="section-8">Related</h2>
         <ul>
           <li>
             <Link href="/tools/interior-paint-calculator/">Interior paint calculator</Link> —
@@ -254,6 +255,6 @@ export default function PaintCoveragePerGallonPage() {
           </li>
         </ul>
       </div>
-    </div>
+    </PageShell>
   )
 }

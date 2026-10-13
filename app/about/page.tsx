@@ -1,3 +1,4 @@
+import PageShell from '@/components/PageShell'
 import Link from 'next/link'
 import { buildMetadata } from '@/lib/seo'
 
@@ -10,7 +11,7 @@ export const metadata = buildMetadata({
 
 export default function AboutPage() {
   return (
-    <div className="mx-auto max-w-3xl px-4 py-12">
+    <PageShell title={"About MyRenoCalc"} path="/about/">
       <h1 className="text-4xl font-extrabold text-navy-900">About MyRenoCalc</h1>
 
       <div className="article mt-6">
@@ -21,7 +22,7 @@ export default function AboutPage() {
           not good enough.
         </p>
 
-        <h2>Our methodology</h2>
+        <h2 id="section-1">Our methodology</h2>
         <p>Every calculator we publish follows the same four rules:</p>
         <ol>
           <li>
@@ -44,7 +45,7 @@ export default function AboutPage() {
           </li>
         </ol>
 
-        <h2>What we are not</h2>
+        <h2 id="section-2">What we are not</h2>
         <p>
           We are not contractors, and our calculators are planning tools — not professional
           advice. Always verify quantities and costs with your contractor or supplier before
@@ -52,12 +53,12 @@ export default function AboutPage() {
           full statement.
         </p>
 
-        <h2>Contact</h2>
+        <h2 id="section-3">Contact</h2>
         <p>
           Found a wrong number, a missing source, or a calculator you wish existed?{' '}
           <Link href="/contact/">Tell us</Link> — corrections are the fastest way we improve.
         </p>
       </div>
-    </div>
+    </PageShell>
   )
 }

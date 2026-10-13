@@ -1,3 +1,4 @@
+import PageShell from '@/components/PageShell'
 import Link from 'next/link'
 import Faq from '@/components/Faq'
 import Callout from '@/components/Callout'
@@ -40,7 +41,7 @@ const faqs = [
 
 export default function HowToMeasureRoomForPaintPage() {
   return (
-    <div className="mx-auto max-w-3xl px-4 py-12">
+    <PageShell title={"How to Measure a Room for Paint (Step by Step)"} path="/guides/how-to-measure-room-for-paint/" category="Paint" updated="2026-10-13" sections={[{"id":"section-1","title":"Tools you need"},{"id":"section-2","title":"Step 1 — Sketch the room"},{"id":"section-3","title":"Step 2 — Measure each wall's length"},{"id":"section-4","title":"Step 3 — Measure the ceiling height"},{"id":"section-5","title":"Step 4 — Compute gross wall area"},{"id":"section-6","title":"Step 5 — Subtract doors and windows"},{"id":"section-7","title":"Step 6 — Handle closets and alcoves"},{"id":"section-8","title":"Step 7 — Measure the ceiling separately"},{"id":"section-9","title":"Step 8 — Note the trim, don't subtract it"},{"id":"section-10","title":"Worked example: a 12x14 room"},{"id":"section-11","title":"Measuring tricky rooms"},{"id":"section-12","title":"A simple recording sheet"},{"id":"section-13","title":"Frequently asked questions"},{"id":"section-14","title":"Related"}]}>
       <h1 className="text-4xl font-extrabold text-navy-900">
         How to Measure a Room for Paint (Step by Step)
       </h1>
@@ -58,7 +59,7 @@ export default function HowToMeasureRoomForPaintPage() {
           example.
         </p>
 
-        <h2>Tools you need</h2>
+        <h2 id="section-1">Tools you need</h2>
         <ul>
           <li>Tape measure (25 ft is plenty) or a laser measure</li>
           <li>Notebook or phone to record each measurement</li>
@@ -66,14 +67,14 @@ export default function HowToMeasureRoomForPaintPage() {
           calculator</Link> for the final math — or a calculator app</li>
         </ul>
 
-        <h2>Step 1 — Sketch the room</h2>
+        <h2 id="section-2">Step 1 — Sketch the room</h2>
         <p>
           Draw a rough rectangle and label the four walls A, B, C, D. If the room has an alcove,
           a bay window, or an L-shape, sketch those too — you will measure each wall segment
           individually rather than trying to force the room into one rectangle.
         </p>
 
-        <h2>Step 2 — Measure each wall&apos;s length</h2>
+        <h2 id="section-3">Step 2 — Measure each wall&apos;s length</h2>
         <p>
           Measure every wall at floor level, wall to wall, and write each one down. Measure all
           four walls even if the room looks square — in older homes opposite walls commonly
@@ -81,7 +82,7 @@ export default function HowToMeasureRoomForPaintPage() {
           and bump-outs, measure each segment.
         </p>
 
-        <h2>Step 3 — Measure the ceiling height</h2>
+        <h2 id="section-4">Step 3 — Measure the ceiling height</h2>
         <p>
           Measure floor to ceiling in two or three spots. Standard is 8 feet, but many homes
           have 9- or 10-foot ceilings, and height is the single biggest lever on wall area: a
@@ -89,14 +90,14 @@ export default function HowToMeasureRoomForPaintPage() {
           actual measurement, not the assumed one.
         </p>
 
-        <h2>Step 4 — Compute gross wall area</h2>
+        <h2 id="section-5">Step 4 — Compute gross wall area</h2>
         <p>
           For a rectangular room: <strong>2 &times; height &times; (length + width)</strong>.
           For irregular rooms, compute each wall segment (length &times; height) and add them
           up. This is the total wall surface before subtracting anything you won&apos;t paint.
         </p>
 
-        <h2>Step 5 — Subtract doors and windows</h2>
+        <h2 id="section-6">Step 5 — Subtract doors and windows</h2>
         <p>
           Count every door and window, then subtract the standard allowances: <strong>20 sq ft
           per door and 15 sq ft per window</strong>, per the Hamilton &amp; Hamilton guide
@@ -112,7 +113,7 @@ export default function HowToMeasureRoomForPaintPage() {
           </p>
         </Callout>
 
-        <h2>Step 6 — Handle closets and alcoves</h2>
+        <h2 id="section-7">Step 6 — Handle closets and alcoves</h2>
         <p>
           Measure each closet and alcove separately and add its wall area to the total from
           Step 4. Decide before you buy paint whether closet interiors get painted: if yes,
@@ -120,7 +121,7 @@ export default function HowToMeasureRoomForPaintPage() {
           standard door opening and subtract 20 sq ft.
         </p>
 
-        <h2>Step 7 — Measure the ceiling separately</h2>
+        <h2 id="section-8">Step 7 — Measure the ceiling separately</h2>
         <p>
           Ceiling area is simply <strong>length &times; width</strong> (plus any alcove
           ceilings). Keep it as its own line item because ceilings use flat ceiling paint, not
@@ -128,7 +129,7 @@ export default function HowToMeasureRoomForPaintPage() {
           350, rounded up to the nearest quarter gallon.
         </p>
 
-        <h2>Step 8 — Note the trim, don&apos;t subtract it</h2>
+        <h2 id="section-9">Step 8 — Note the trim, don&apos;t subtract it</h2>
         <p>
           Baseboards, crown molding, door frames, and window trim get painted — usually with a
           separate semi-gloss trim paint — but they don&apos;t meaningfully reduce wall area, so
@@ -137,7 +138,7 @@ export default function HowToMeasureRoomForPaintPage() {
           widely).
         </p>
 
-        <h2>Worked example: a 12x14 room</h2>
+        <h2 id="section-10">Worked example: a 12x14 room</h2>
         <ol>
           <li>
             <strong>Walls:</strong> two walls at 12 ft, two at 14 ft. Ceiling height 8 ft.
@@ -167,7 +168,7 @@ export default function HowToMeasureRoomForPaintPage() {
           <Link href="/tools/interior-paint-calculator/">interior paint calculator</Link>.
         </p>
 
-        <h2>Measuring tricky rooms</h2>
+        <h2 id="section-11">Measuring tricky rooms</h2>
         <h3>L-shaped rooms</h3>
         <p>
           Split the L into two rectangles on your sketch and measure each rectangle&apos;s walls
@@ -192,7 +193,7 @@ export default function HowToMeasureRoomForPaintPage() {
           because the labor (not the paint) is what you&apos;re really buying.
         </p>
 
-        <h2>A simple recording sheet</h2>
+        <h2 id="section-12">A simple recording sheet</h2>
         <p>
           Copy this into your notebook before you start measuring — it keeps the openings
           from getting lost:
@@ -213,10 +214,10 @@ export default function HowToMeasureRoomForPaintPage() {
           <Link href="/tools/interior-paint-calculator/">interior paint calculator</Link>.
         </p>
 
-        <h2>Frequently asked questions</h2>
+        <h2 id="section-13">Frequently asked questions</h2>
         <Faq items={faqs} />
 
-        <h2>Related</h2>
+        <h2 id="section-14">Related</h2>
         <ul>
           <li>
             <Link href="/tools/interior-paint-calculator/">Interior paint calculator</Link> —
@@ -236,6 +237,6 @@ export default function HowToMeasureRoomForPaintPage() {
           </li>
         </ul>
       </div>
-    </div>
+    </PageShell>
   )
 }

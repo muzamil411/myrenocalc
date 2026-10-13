@@ -1,3 +1,5 @@
+import CalculatorShell from '@/components/CalculatorShell'
+import PageShell from '@/components/PageShell'
 import Link from 'next/link'
 import { buildMetadata, jsonLdFaq } from '@/lib/seo'
 import CeilingPaintCalculator from '@/components/calculators/CeilingPaintCalculator'
@@ -41,7 +43,7 @@ const faqs = [
 
 export default function CeilingPaintCalculatorPage() {
   return (
-    <div className="mx-auto max-w-3xl px-4 py-12">
+    <PageShell title={"Ceiling Paint Calculator"} path="/tools/ceiling-paint-calculator/" category="Paint">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLdFaq(faqs)) }}
@@ -67,11 +69,11 @@ export default function CeilingPaintCalculatorPage() {
       </div>
 
       <div className="mt-8">
-        <CeilingPaintCalculator />
+        <CalculatorShell><CeilingPaintCalculator /></CalculatorShell>
       </div>
 
       <div className="article mt-10">
-        <h2>How the math works</h2>
+        <h2 id="section-1">How the math works</h2>
         <Callout variant="method">
           <p>
             <strong>Ceiling area</strong> = length × width. No subtractions — unlike walls, there
@@ -85,7 +87,7 @@ export default function CeilingPaintCalculatorPage() {
           </p>
         </Callout>
 
-        <h2>Worked example</h2>
+        <h2 id="section-2">Worked example</h2>
         <p>A 15 × 20 ft living room ceiling, flat, 2 coats:</p>
         <ol>
           <li>Area = 15 × 20 = 300 sq ft</li>
@@ -97,7 +99,7 @@ export default function CeilingPaintCalculatorPage() {
           <strong>2 gallons + 1 quart</strong>. That extra quart is the texture tax.
         </p>
 
-        <h2>Limitations</h2>
+        <h2 id="section-3">Limitations</h2>
         <Callout variant="limitation">
           <p>
             Vaulted or tray ceilings have more surface than length × width — measure each plane
@@ -107,7 +109,7 @@ export default function CeilingPaintCalculatorPage() {
           </p>
         </Callout>
 
-        <h2>Frequently asked questions</h2>
+        <h2 id="section-4">Frequently asked questions</h2>
       </div>
 
       <div className="mt-4">
@@ -115,7 +117,7 @@ export default function CeilingPaintCalculatorPage() {
       </div>
 
       <div className="article mt-10">
-        <h2>Related calculators &amp; guides</h2>
+        <h2 id="section-5">Related calculators &amp; guides</h2>
         <ul>
           <li>
             <Link href="/tools/interior-paint-calculator/">Interior paint calculator</Link> — walls
@@ -135,6 +137,6 @@ export default function CeilingPaintCalculatorPage() {
           </li>
         </ul>
       </div>
-    </div>
+    </PageShell>
   )
 }

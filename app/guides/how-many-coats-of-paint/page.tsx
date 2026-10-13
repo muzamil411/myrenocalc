@@ -1,3 +1,4 @@
+import PageShell from '@/components/PageShell'
 import Link from 'next/link'
 import Faq from '@/components/Faq'
 import Callout from '@/components/Callout'
@@ -40,7 +41,7 @@ const faqs = [
 
 export default function HowManyCoatsOfPaintPage() {
   return (
-    <div className="mx-auto max-w-3xl px-4 py-12">
+    <PageShell title={"How Many Coats of Paint Do Walls Need?"} path="/guides/how-many-coats-of-paint/" category="Paint" updated="2026-10-13" sections={[{"id":"section-1","title":"When one coat is enough"},{"id":"section-2","title":"The standard: two coats"},{"id":"section-3","title":"Primer + two coats: new drywall, dark-to-light, patches"},{"id":"section-4","title":"Ceilings: usually one to two"},{"id":"section-5","title":"Primer vs. paint-and-primer-in-one"},{"id":"section-6","title":"How to tell if you need another coat"},{"id":"section-7","title":"What cheap paint does to the coat count"},{"id":"section-8","title":"Frequently asked questions"},{"id":"section-9","title":"Related"}]}>
       <h1 className="text-4xl font-extrabold text-navy-900">
         How Many Coats of Paint Do Walls Need?
       </h1>
@@ -59,7 +60,7 @@ export default function HowManyCoatsOfPaintPage() {
           Here is how to tell which situation you are in.
         </p>
 
-        <h2>When one coat is enough</h2>
+        <h2 id="section-1">When one coat is enough</h2>
         <p>One careful coat works when all of these are true:</p>
         <ul>
           <li>
@@ -82,7 +83,7 @@ export default function HowManyCoatsOfPaintPage() {
           rather than automatically rolling a second full coat.
         </p>
 
-        <h2>The standard: two coats</h2>
+        <h2 id="section-2">The standard: two coats</h2>
         <p>
           Two coats is the default for a color change on previously painted walls, for any room
           where you want a uniform, durable finish, and for every estimate on this site. The
@@ -94,7 +95,7 @@ export default function HowManyCoatsOfPaintPage() {
           coat, plus another trip to the store.
         </p>
 
-        <h2>Primer + two coats: new drywall, dark-to-light, patches</h2>
+        <h2 id="section-3">Primer + two coats: new drywall, dark-to-light, patches</h2>
         <p>Three situations need a dedicated primer coat before the two finish coats:</p>
         <ul>
           <li>
@@ -120,7 +121,7 @@ export default function HowManyCoatsOfPaintPage() {
           250 (an estimate from the rough-surface range in the KILZ data sheet).
         </p>
 
-        <h2>Ceilings: usually one to two</h2>
+        <h2 id="section-4">Ceilings: usually one to two</h2>
         <p>
           A ceiling in good condition being repainted white often needs just one careful coat
           of flat ceiling paint. Stained ceilings, smoke damage, or a color change need a
@@ -142,7 +143,7 @@ export default function HowManyCoatsOfPaintPage() {
           </p>
         </Callout>
 
-        <h2>Primer vs. paint-and-primer-in-one</h2>
+        <h2 id="section-5">Primer vs. paint-and-primer-in-one</h2>
         <p>
           Many paints are marketed as &ldquo;paint and primer in one.&rdquo; These are
           high-solids paints with better-than-average hide — genuinely useful for a
@@ -159,7 +160,7 @@ export default function HowManyCoatsOfPaintPage() {
           &rarr; a quality paint alone (or a paint-and-primer product) is fine.
         </p>
 
-        <h2>How to tell if you need another coat</h2>
+        <h2 id="section-6">How to tell if you need another coat</h2>
         <p>
           Don&apos;t decide while the paint is wet — wet paint always looks uneven. Wait until
           the first coat is fully dry, then check the wall in raking light: stand to one
@@ -189,7 +190,7 @@ export default function HowManyCoatsOfPaintPage() {
           coat&apos;s job was coverage, the second&apos;s is uniformity and full film thickness.
         </p>
 
-        <h2>What cheap paint does to the coat count</h2>
+        <h2 id="section-7">What cheap paint does to the coat count</h2>
         <p>
           Budget paint ($20-30/gal in 2026) has less pigment and fewer solids, which means
           weaker hiding. On a color change, budget paint often needs three coats where a
@@ -199,10 +200,10 @@ export default function HowManyCoatsOfPaintPage() {
           cost estimator</Link> lets you compare tiers honestly.
         </p>
 
-        <h2>Frequently asked questions</h2>
+        <h2 id="section-8">Frequently asked questions</h2>
         <Faq items={faqs} />
 
-        <h2>Related</h2>
+        <h2 id="section-9">Related</h2>
         <ul>
           <li>
             <Link href="/tools/primer-calculator/">Primer calculator</Link> — size the primer
@@ -222,6 +223,6 @@ export default function HowManyCoatsOfPaintPage() {
           </li>
         </ul>
       </div>
-    </div>
+    </PageShell>
   )
 }

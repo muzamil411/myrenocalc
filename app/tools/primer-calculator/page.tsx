@@ -1,3 +1,5 @@
+import CalculatorShell from '@/components/CalculatorShell'
+import PageShell from '@/components/PageShell'
 import Link from 'next/link'
 import { buildMetadata, jsonLdFaq } from '@/lib/seo'
 import PrimerCalculator from '@/components/calculators/PrimerCalculator'
@@ -41,7 +43,7 @@ const faqs = [
 
 export default function PrimerCalculatorPage() {
   return (
-    <div className="mx-auto max-w-3xl px-4 py-12">
+    <PageShell title={"Primer Calculator"} path="/tools/primer-calculator/" category="Paint">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLdFaq(faqs)) }}
@@ -68,11 +70,11 @@ export default function PrimerCalculatorPage() {
       </div>
 
       <div className="mt-8">
-        <PrimerCalculator />
+        <CalculatorShell><PrimerCalculator /></CalculatorShell>
       </div>
 
       <div className="article mt-10">
-        <h2>How the math works</h2>
+        <h2 id="section-1">How the math works</h2>
         <Callout variant="method">
           <p>
             <strong>Primer gallons</strong> = wall area ÷ coverage for your surface. Coverage rates
@@ -87,7 +89,7 @@ export default function PrimerCalculatorPage() {
           </p>
         </Callout>
 
-        <h2>Worked example</h2>
+        <h2 id="section-2">Worked example</h2>
         <p>New drywall in a 12 × 12 ft room, 8 ft ceilings, 1 door, 2 windows:</p>
         <ol>
           <li>Wall area = 2 × 8 × (12 + 12) − 20 − 30 = 334 sq ft</li>
@@ -95,7 +97,7 @@ export default function PrimerCalculatorPage() {
           <li>Rounded up: <strong>1 gallon + 1 quart</strong></li>
         </ol>
 
-        <h2>Limitations</h2>
+        <h2 id="section-3">Limitations</h2>
         <Callout variant="limitation">
           <p>
             Stain blocking (water marks, smoke, tannin bleed) needs a dedicated stain-blocking
@@ -105,7 +107,7 @@ export default function PrimerCalculatorPage() {
           </p>
         </Callout>
 
-        <h2>Frequently asked questions</h2>
+        <h2 id="section-4">Frequently asked questions</h2>
       </div>
 
       <div className="mt-4">
@@ -113,7 +115,7 @@ export default function PrimerCalculatorPage() {
       </div>
 
       <div className="article mt-10">
-        <h2>Related calculators &amp; guides</h2>
+        <h2 id="section-5">Related calculators &amp; guides</h2>
         <ul>
           <li>
             <Link href="/tools/interior-paint-calculator/">Interior paint calculator</Link> —
@@ -129,6 +131,6 @@ export default function PrimerCalculatorPage() {
           </li>
         </ul>
       </div>
-    </div>
+    </PageShell>
   )
 }

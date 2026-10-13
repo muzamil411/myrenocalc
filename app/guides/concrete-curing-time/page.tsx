@@ -1,3 +1,4 @@
+import PageShell from '@/components/PageShell'
 import Link from 'next/link'
 import { buildMetadata, jsonLdFaq } from '@/lib/seo'
 import Faq from '@/components/Faq'
@@ -40,7 +41,7 @@ const faqs = [
 
 export default function ConcreteCuringTimePage() {
   return (
-    <div className="mx-auto max-w-3xl px-4 py-12">
+    <PageShell title={"Concrete Curing Time: The Full Timeline"} path="/guides/concrete-curing-time/" category="Concrete & masonry" updated="2026-10-13" sections={[{"id":"section-1","title":"The curing timeline"},{"id":"section-2","title":"What actually moves the timeline"},{"id":"section-3","title":"Practical do s and don ts"},{"id":"section-4","title":"Frequently asked questions"},{"id":"section-5","title":"Related calculators & guides"}]}>
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLdFaq(faqs)) }}
@@ -67,7 +68,7 @@ export default function ConcreteCuringTimePage() {
           days — is the standard reference (ACI 308R). Everything practical flows from it.
         </p>
 
-        <h2>The curing timeline</h2>
+        <h2 id="section-1">The curing timeline</h2>
         <table>
           <thead>
             <tr>
@@ -110,7 +111,7 @@ export default function ConcreteCuringTimePage() {
           hot, dry, windy concrete can crack before it ever gets strong.
         </p>
 
-        <h2>What actually moves the timeline</h2>
+        <h2 id="section-2">What actually moves the timeline</h2>
         <ul>
           <li>
             <strong>Temperature.</strong> 70°F is the baseline curve. Around 50°F, everything
@@ -135,7 +136,7 @@ export default function ConcreteCuringTimePage() {
           </li>
         </ul>
 
-        <h2>Practical do&rsquo;s and don&rsquo;ts</h2>
+        <h2 id="section-3">Practical do&rsquo;s and don&rsquo;ts</h2>
         <ul>
           <li>
             <strong>Do</strong> keep it moist for 7 days — mist it, cover it, or both. This one
@@ -169,7 +170,7 @@ export default function ConcreteCuringTimePage() {
           </p>
         </Callout>
 
-        <h2>Frequently asked questions</h2>
+        <h2 id="section-4">Frequently asked questions</h2>
       </div>
 
       <div className="mt-4">
@@ -177,7 +178,7 @@ export default function ConcreteCuringTimePage() {
       </div>
 
       <div className="article mt-10">
-        <h2>Related calculators &amp; guides</h2>
+        <h2 id="section-5">Related calculators &amp; guides</h2>
         <ul>
           <li>
             <Link href="/tools/concrete-calculator/">Concrete calculator</Link> — size the pour
@@ -196,6 +197,6 @@ export default function ConcreteCuringTimePage() {
           </li>
         </ul>
       </div>
-    </div>
+    </PageShell>
   )
 }

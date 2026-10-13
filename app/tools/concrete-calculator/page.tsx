@@ -1,3 +1,5 @@
+import CalculatorShell from '@/components/CalculatorShell'
+import PageShell from '@/components/PageShell'
 import Link from 'next/link'
 import { buildMetadata, jsonLdFaq } from '@/lib/seo'
 import ConcreteCalculator from '@/components/calculators/ConcreteCalculator'
@@ -41,7 +43,7 @@ const faqs = [
 
 export default function ConcreteCalculatorPage() {
   return (
-    <div className="mx-auto max-w-3xl px-4 py-12">
+    <PageShell title={"Concrete Calculator"} path="/tools/concrete-calculator/" category="Concrete & masonry">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLdFaq(faqs)) }}
@@ -68,11 +70,11 @@ export default function ConcreteCalculatorPage() {
       </div>
 
       <div className="mt-8">
-        <ConcreteCalculator />
+        <CalculatorShell><ConcreteCalculator /></CalculatorShell>
       </div>
 
       <div className="article mt-10">
-        <h2>How the math works</h2>
+        <h2 id="section-1">How the math works</h2>
         <Callout variant="method">
           <p>
             <strong>Volume</strong> = length × width × (thickness ÷ 12), all in feet. A 10 × 10
@@ -90,7 +92,7 @@ export default function ConcreteCalculatorPage() {
           </p>
         </Callout>
 
-        <h2>Worked example</h2>
+        <h2 id="section-2">Worked example</h2>
         <p>A 10 × 10 ft patio slab, 4 inches thick, 5% waste allowance:</p>
         <ol>
           <li>Volume = 10 × 10 × (4 ÷ 12) = 33.33 cu ft</li>
@@ -103,7 +105,7 @@ export default function ConcreteCalculatorPage() {
           that is the point. No black box.
         </p>
 
-        <h2>Limitations</h2>
+        <h2 id="section-3">Limitations</h2>
         <Callout variant="limitation">
           <p>
             This calculator assumes a rectangular slab of uniform thickness. It does not account
@@ -116,7 +118,7 @@ export default function ConcreteCalculatorPage() {
           </p>
         </Callout>
 
-        <h2>Frequently asked questions</h2>
+        <h2 id="section-4">Frequently asked questions</h2>
       </div>
 
       <div className="mt-4">
@@ -124,7 +126,7 @@ export default function ConcreteCalculatorPage() {
       </div>
 
       <div className="article mt-10">
-        <h2>Related calculators &amp; guides</h2>
+        <h2 id="section-5">Related calculators &amp; guides</h2>
         <ul>
           <li>
             <Link href="/tools/concrete-bag-calculator/">Concrete bag calculator</Link> — bags by
@@ -150,6 +152,6 @@ export default function ConcreteCalculatorPage() {
           </li>
         </ul>
       </div>
-    </div>
+    </PageShell>
   )
 }

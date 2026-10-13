@@ -1,3 +1,4 @@
+import PageShell from '@/components/PageShell'
 import Link from 'next/link'
 import { buildMetadata, jsonLdFaq } from '@/lib/seo'
 import Faq from '@/components/Faq'
@@ -35,7 +36,7 @@ const faqs = [
 
 export default function QuikreteVsReadyMixPage() {
   return (
-    <div className="mx-auto max-w-3xl px-4 py-12">
+    <PageShell title={"Quikrete vs. Ready-Mix: Bags or Truck?"} path="/guides/quikrete-vs-ready-mix/" category="Concrete & masonry" updated="2026-10-13" sections={[{"id":"section-1","title":"Bag counts for common slabs (4 inches thick)"},{"id":"section-2","title":"The truck side of the math"},{"id":"section-3","title":"The real break-even: about 1 cubic yard"},{"id":"section-4","title":"When bags are genuinely the right call"},{"id":"section-5","title":"Frequently asked questions"},{"id":"section-6","title":"Related calculators & guides"}]}>
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLdFaq(faqs)) }}
@@ -61,7 +62,7 @@ export default function QuikreteVsReadyMixPage() {
           planning ranges from published pricing guides — labeled as estimates throughout.
         </p>
 
-        <h2>Bag counts for common slabs (4 inches thick)</h2>
+        <h2 id="section-1">Bag counts for common slabs (4 inches thick)</h2>
         <table>
           <thead>
             <tr>
@@ -110,7 +111,7 @@ export default function QuikreteVsReadyMixPage() {
           <Link href="/tools/concrete-bag-calculator/">concrete bag calculator</Link>.
         </p>
 
-        <h2>The truck side of the math</h2>
+        <h2 id="section-2">The truck side of the math</h2>
         <p>
           Ready-mix in 2026 runs roughly <strong>$125–$180 per cubic yard delivered</strong> for
           standard residential mix (planning range from published pricing guides). Against the
@@ -133,7 +134,7 @@ export default function QuikreteVsReadyMixPage() {
           </li>
         </ul>
 
-        <h2>The real break-even: about 1 cubic yard</h2>
+        <h2 id="section-3">The real break-even: about 1 cubic yard</h2>
         <p>
           On pure material cost, the lines cross near <strong>1 cubic yard (45 eighty-pound
           bags)</strong>. Below that, short-load fees make the truck expensive per yard and bags
@@ -157,7 +158,7 @@ export default function QuikreteVsReadyMixPage() {
           </li>
         </ul>
 
-        <h2>When bags are genuinely the right call</h2>
+        <h2 id="section-4">When bags are genuinely the right call</h2>
         <ul>
           <li>Post holes, small pads, and repairs under ~1 yard</li>
           <li>Sites a mixer truck cannot reach (steep, soft, or gated access)</li>
@@ -174,7 +175,7 @@ export default function QuikreteVsReadyMixPage() {
           </p>
         </Callout>
 
-        <h2>Frequently asked questions</h2>
+        <h2 id="section-5">Frequently asked questions</h2>
       </div>
 
       <div className="mt-4">
@@ -182,7 +183,7 @@ export default function QuikreteVsReadyMixPage() {
       </div>
 
       <div className="article mt-10">
-        <h2>Related calculators &amp; guides</h2>
+        <h2 id="section-6">Related calculators &amp; guides</h2>
         <ul>
           <li>
             <Link href="/tools/concrete-bag-calculator/">Concrete bag calculator</Link> — exact
@@ -203,6 +204,6 @@ export default function QuikreteVsReadyMixPage() {
           </li>
         </ul>
       </div>
-    </div>
+    </PageShell>
   )
 }

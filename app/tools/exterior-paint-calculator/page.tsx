@@ -1,3 +1,5 @@
+import CalculatorShell from '@/components/CalculatorShell'
+import PageShell from '@/components/PageShell'
 import Link from 'next/link'
 import { buildMetadata, jsonLdFaq } from '@/lib/seo'
 import ExteriorPaintCalculator from '@/components/calculators/ExteriorPaintCalculator'
@@ -41,7 +43,7 @@ const faqs = [
 
 export default function ExteriorPaintCalculatorPage() {
   return (
-    <div className="mx-auto max-w-3xl px-4 py-12">
+    <PageShell title={"Exterior Paint Calculator"} path="/tools/exterior-paint-calculator/" category="Paint">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLdFaq(faqs)) }}
@@ -67,11 +69,11 @@ export default function ExteriorPaintCalculatorPage() {
       </div>
 
       <div className="mt-8">
-        <ExteriorPaintCalculator />
+        <CalculatorShell><ExteriorPaintCalculator /></CalculatorShell>
       </div>
 
       <div className="article mt-10">
-        <h2>How the math works</h2>
+        <h2 id="section-1">How the math works</h2>
         <Callout variant="method">
           <p>
             <strong>Wall area</strong> = 2 × (width + depth) × wall height × stories − windows × 15
@@ -86,7 +88,7 @@ export default function ExteriorPaintCalculatorPage() {
           </p>
         </Callout>
 
-        <h2>Worked example</h2>
+        <h2 id="section-2">Worked example</h2>
         <p>A single-story 40 × 30 ft house, 9 ft walls, 12 windows, 3 doors, smooth siding, 2 coats:</p>
         <ol>
           <li>Perimeter = 2 × (40 + 30) = 140 ft</li>
@@ -96,7 +98,7 @@ export default function ExteriorPaintCalculatorPage() {
           <li>Rounded up: <strong>6 gallons</strong> (5 gal + 4 qt)</li>
         </ol>
 
-        <h2>Limitations</h2>
+        <h2 id="section-3">Limitations</h2>
         <Callout variant="limitation">
           <p>
             Gable triangles are not included — add 10–15% for prominent gables (estimate). Porches,
@@ -106,7 +108,7 @@ export default function ExteriorPaintCalculatorPage() {
           </p>
         </Callout>
 
-        <h2>Frequently asked questions</h2>
+        <h2 id="section-4">Frequently asked questions</h2>
       </div>
 
       <div className="mt-4">
@@ -114,7 +116,7 @@ export default function ExteriorPaintCalculatorPage() {
       </div>
 
       <div className="article mt-10">
-        <h2>Related calculators &amp; guides</h2>
+        <h2 id="section-5">Related calculators &amp; guides</h2>
         <ul>
           <li>
             <Link href="/tools/interior-paint-calculator/">Interior paint calculator</Link> — the
@@ -136,6 +138,6 @@ export default function ExteriorPaintCalculatorPage() {
           </li>
         </ul>
       </div>
-    </div>
+    </PageShell>
   )
 }

@@ -1,205 +1,433 @@
-import Link from 'next/link'
-import { buildMetadata } from '@/lib/seo'
+import {
+  Badge,
+  Button,
+  Card,
+  CtaBand,
+  ProcessSteps,
+  ProjectIcon,
+  SectionHeading,
+  StatsBand,
+} from "@/components/Design";
+import Faq from "@/components/Faq";
+import { homeFaqs } from "@/lib/home-faq";
+import Link from "next/link";
+import { buildMetadata, jsonLdFaq } from "@/lib/seo";
 
 export const metadata = buildMetadata({
-  title: 'MyRenoCalc — Home Improvement Calculators',
+  title: "MyRenoCalc — Home Improvement Calculators",
   description:
-    'Free home improvement calculators with the math shown and sources cited. Paint, concrete, flooring, drywall, lumber and more — every project starts with a number.',
-  path: '/',
-})
+    "Free home improvement calculators with the math shown and sources cited. Paint, concrete, flooring, drywall, lumber and more — every project starts with a number.",
+  path: "/",
+});
 
-type CalcItem = { name: string; href?: string }
-type CalcGroup = { name: string; items: CalcItem[] }
+type CalcItem = { name: string; href?: string };
+type CalcGroup = { name: string; items: CalcItem[] };
 
 const GROUPS: CalcGroup[] = [
   {
-    name: 'Paint',
+    name: "Paint",
     items: [
-      { name: 'Interior paint calculator', href: '/tools/interior-paint-calculator/' },
-      { name: 'Exterior paint calculator', href: '/tools/exterior-paint-calculator/' },
-      { name: 'Ceiling paint calculator', href: '/tools/ceiling-paint-calculator/' },
-      { name: 'Primer calculator', href: '/tools/primer-calculator/' },
-      { name: 'Paint cost estimator', href: '/tools/paint-cost-calculator/' },
+      {
+        name: "Interior paint calculator",
+        href: "/tools/interior-paint-calculator/",
+      },
+      {
+        name: "Exterior paint calculator",
+        href: "/tools/exterior-paint-calculator/",
+      },
+      {
+        name: "Ceiling paint calculator",
+        href: "/tools/ceiling-paint-calculator/",
+      },
+      { name: "Primer calculator", href: "/tools/primer-calculator/" },
+      { name: "Paint cost estimator", href: "/tools/paint-cost-calculator/" },
     ],
   },
   {
-    name: 'Concrete & Masonry',
+    name: "Concrete & Masonry",
     items: [
-      { name: 'Concrete slab calculator', href: '/tools/concrete-calculator/' },
-      { name: 'Concrete bag calculator', href: '/tools/concrete-bag-calculator/' },
-      { name: 'Footing concrete calculator', href: '/tools/footing-concrete-calculator/' },
-      { name: 'Gravel calculator', href: '/tools/gravel-calculator/' },
+      { name: "Concrete slab calculator", href: "/tools/concrete-calculator/" },
+      {
+        name: "Concrete bag calculator",
+        href: "/tools/concrete-bag-calculator/",
+      },
+      {
+        name: "Footing concrete calculator",
+        href: "/tools/footing-concrete-calculator/",
+      },
+      { name: "Gravel calculator", href: "/tools/gravel-calculator/" },
     ],
   },
   {
-    name: 'Flooring',
+    name: "Flooring",
     items: [
-      { name: 'Flooring calculator' },
-      { name: 'Tile calculator' },
-      { name: 'Laminate box calculator' },
-      { name: 'Hardwood estimator' },
+      { name: "Flooring calculator" },
+      { name: "Tile calculator" },
+      { name: "Laminate box calculator" },
+      { name: "Hardwood estimator" },
     ],
   },
   {
-    name: 'Drywall',
-    items: [{ name: 'Drywall sheet calculator' }, { name: 'Joint compound estimator' }],
-  },
-  {
-    name: 'Lumber & Decking',
+    name: "Drywall",
     items: [
-      { name: 'Board-foot calculator' },
-      { name: 'Deck board estimator' },
-      { name: 'Fence picket calculator' },
+      { name: "Drywall sheet calculator" },
+      { name: "Joint compound estimator" },
     ],
   },
   {
-    name: 'Landscaping',
+    name: "Lumber & Decking",
     items: [
-      { name: 'Mulch calculator' },
-      { name: 'Topsoil calculator' },
-      { name: 'Paver calculator' },
+      { name: "Board-foot calculator" },
+      { name: "Deck board estimator" },
+      { name: "Fence picket calculator" },
     ],
   },
-]
+  {
+    name: "Landscaping",
+    items: [
+      { name: "Mulch calculator" },
+      { name: "Topsoil calculator" },
+      { name: "Paver calculator" },
+    ],
+  },
+];
 
 const PRINCIPLES = [
   {
-    title: 'We show the formula',
-    body: 'No black boxes. Every calculator explains the math in plain English so you can check our work — and trust the number you take to the store.',
+    title: "We show the formula",
+    body: "No black boxes. Every calculator explains the math in plain English so you can check our work — and trust the number you take to the store.",
   },
   {
-    title: 'Every figure is sourced',
-    body: 'Coverage rates, bag yields, waste factors — each number traces to a manufacturer tech sheet or industry standard, cited visibly on the page.',
+    title: "Every figure is sourced",
+    body: "Coverage rates, bag yields, waste factors — each number traces to a manufacturer tech sheet or industry standard, cited visibly on the page.",
   },
   {
-    title: 'Worked examples, real numbers',
-    body: 'Each tool walks through a concrete example step by step, so you see exactly how your inputs turn into a result.',
+    title: "Worked examples, real numbers",
+    body: "Each tool walks through a concrete example step by step, so you see exactly how your inputs turn into a result.",
   },
   {
-    title: 'Limitations stated up front',
-    body: 'Texture, waste, uneven surfaces — we tell you what the calculator does not account for, before you buy materials.',
+    title: "Limitations stated up front",
+    body: "Texture, waste, uneven surfaces — we tell you what the calculator does not account for, before you buy materials.",
   },
-]
+];
 
+const GUIDES = [
+  {
+    name: "How much paint for a 12×12 room?",
+    href: "/guides/how-much-paint-for-12x12-room/",
+    excerpt:
+      "How much paint for a 12x12 room? Exactly 2 gallons for two coats on the walls — with the math shown, a room-size table, plus ceiling and primer notes.",
+  },
+  {
+    name: "Paint coverage per gallon by type",
+    href: "/guides/paint-coverage-per-gallon/",
+    excerpt:
+      "Interior latex covers about 350 sq ft per gallon per coat, but primer, exterior paint, and textured finishes differ — full coverage table with sources cited.",
+  },
+  {
+    name: "How to measure a room for paint",
+    href: "/guides/how-to-measure-room-for-paint/",
+    excerpt:
+      "Measure a room for paint in 8 steps: wall lengths, ceiling height, door and window allowances, ceilings, and trim — with a worked 12x14 example included.",
+  },
+  {
+    name: "How many coats of paint do walls need?",
+    href: "/guides/how-many-coats-of-paint/",
+    excerpt:
+      "Most interior walls need two coats of paint. Learn when one coat is enough, when new drywall and dark-to-light changes need primer plus two, and ceiling rules.",
+  },
+  {
+    name: "Exterior paint for a 2,000 sq ft house",
+    href: "/guides/exterior-paint-for-2000-sq-ft-house/",
+    excerpt:
+      "How much exterior paint for a 2,000 sq ft house? About 8 gallons for smooth siding, 9 for textured, 11 for brick — full worked example with sources.",
+  },
+  {
+    name: "Paint cost per square foot (2026)",
+    href: "/guides/paint-cost-per-square-foot/",
+    excerpt:
+      "Interior paint costs $0.11–0.49 per sq ft in materials by tier, and 2026 pro labor runs $2–6 per sq ft of floor space (estimate) — full 2026 breakdown.",
+  },
+  {
+    name: "7 paint quantity mistakes that waste money",
+    href: "/guides/paint-quantity-mistakes/",
+    excerpt:
+      "Seven paint quantity mistakes that waste money — from forgetting the second coat to one coverage rate for textured walls — and how to avoid each one.",
+  },
+  {
+    name: "How much does a yard of concrete cover?",
+    href: "/guides/how-much-does-a-yard-of-concrete-cover/",
+    excerpt:
+      "One cubic yard of concrete covers 81 sq ft at 4 inches, 65 at 5 inches, 54 at 6 inches. Coverage tables, 2026 cost per yard, and project examples.",
+  },
+  {
+    name: "Quikrete vs. ready-mix: bags or truck?",
+    href: "/guides/quikrete-vs-ready-mix/",
+    excerpt:
+      "Bags or a concrete truck? Bag-count tables for common slabs, 2026 cost comparison per yard, and the real break-even point — with the math shown.",
+  },
+  {
+    name: "Concrete curing timeline (24h to 28 days)",
+    href: "/guides/concrete-curing-time/",
+    excerpt:
+      "How long does concrete take to cure? Foot traffic at 24-48h, ~70% strength at 7 days, full strength at 28 days — timeline, factors, and practical do’s and don’ts.",
+  },
+  {
+    name: "How thick should a concrete slab be?",
+    href: "/guides/how-thick-should-concrete-slab-be/",
+    excerpt:
+      "4 inches for patios, 5 for driveways, 6 for heavy loads — slab thickness by use case, rebar guidance, and what each extra inch costs. With the math.",
+  },
+];
+const DESCRIPTIONS = [
+  "Walls, ceilings, primer, and the cost of a fresh start.",
+  "Plan slabs, bag counts, footings, and gravel.",
+  "Plan the materials beneath your feet.",
+  "A solid foundation for finished walls.",
+  "Make every board and every cut count.",
+  "Bring your outdoor project into focus.",
+];
 export default function HomePage() {
   return (
     <>
-      {/* Hero */}
-      <section className="bg-navy-950 text-white">
-        <div className="mx-auto max-w-5xl px-4 py-16 md:py-24">
-          <p className="text-sm font-semibold uppercase tracking-widest text-accent-500">
-            Home improvement calculators
-          </p>
-          <h1 className="mt-4 max-w-3xl text-4xl font-extrabold leading-tight tracking-tight md:text-5xl">
-            Every project starts with a number.
-          </h1>
-          <p className="mt-5 max-w-2xl text-lg text-slate-300">
-            MyRenoCalc builds free calculators for real home projects — how much paint to buy,
-            how many bags of concrete you need, what the flooring will cost. We show the math,
-            cite our sources, and state the limitations.
-          </p>
-          <a
-            href="#calculators"
-            className="mt-8 inline-block rounded-lg bg-accent-500 px-6 py-3 font-semibold text-navy-950 transition hover:bg-accent-400"
-          >
-            Browse calculators
-          </a>
-        </div>
-      </section>
-
-      {/* Calculator directory */}
-      <section id="calculators" className="mx-auto max-w-5xl scroll-mt-20 px-4 py-14">
-        <h2 className="text-3xl font-bold text-navy-900">Calculator directory</h2>
-        <p className="mt-3 max-w-2xl text-slate-600">
-          We are building these calculators one project type at a time — paint and
-          concrete are live. Everything below is honestly labeled — check back as new tools go
-          live.
-        </p>
-        <div className="mt-8 grid gap-5 md:grid-cols-2">
-          {GROUPS.map((group) => (
-            <div key={group.name} className="rounded-xl border border-slate-200 bg-white p-6 shadow-sm">
-              <h3 className="text-xl font-bold text-navy-900">{group.name}</h3>
-              <ul className="mt-4 space-y-2">
-                {group.items.map((item) => (
-                  <li key={item.name} className="flex items-center justify-between gap-3 text-slate-700">
-                    {item.href ? (
-                      <Link
-                        href={item.href}
-                        className="font-semibold text-navy-800 underline decoration-accent-500 decoration-2 underline-offset-2 hover:text-navy-900"
-                      >
-                        {item.name}
-                      </Link>
-                    ) : (
-                      <span>{item.name}</span>
-                    )}
-                    {item.href ? (
-                      <span className="shrink-0 rounded-full bg-accent-500/15 px-3 py-1 text-xs font-semibold text-accent-600">
-                        Live
-                      </span>
-                    ) : (
-                      <span className="shrink-0 rounded-full bg-slate-100 px-3 py-1 text-xs font-semibold text-slate-500">
-                        Coming soon
-                      </span>
-                    )}
-                  </li>
-                ))}
-              </ul>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(jsonLdFaq(homeFaqs.slice(0, 5))),
+        }}
+      />
+      <section className="home-hero">
+        <div className="site-container hero-grid">
+          <div className="hero-copy">
+            <p className="eyebrow">Free home-project calculators</p>
+            <h1>
+              Every project starts with <span>a number.</span>
+            </h1>
+            <p className="hero-description">
+              MyRenoCalc builds free calculators for real home projects — how
+              much paint to buy, how many bags of concrete you need, what the
+              flooring will cost. We show the math, cite our sources, and state
+              the limitations.
+            </p>
+            <div className="hero-actions">
+              <Button href="#calculators">Browse calculators</Button>
+              <Button href="#method" secondary>
+                How we calculate
+              </Button>
             </div>
-          ))}
+            <p className="hero-microcopy">
+              <span aria-hidden="true">✓</span> 9 calculators · 11 guides ·
+              every figure sourced
+            </p>
+          </div>
+          <div
+            className="hero-visual"
+            aria-label="Room measurement illustration"
+          >
+            <div className="visual-caption">
+              <span>GOOD PLANS START HERE</span>
+              <span>01 / MEASURE</span>
+            </div>
+            <svg viewBox="0 0 440 330" fill="none" aria-hidden="true">
+              <defs>
+                <pattern
+                  id="grid"
+                  width="22"
+                  height="22"
+                  patternUnits="userSpaceOnUse"
+                >
+                  <path d="M22 0H0V22" stroke="#7F9AAF" strokeOpacity=".12" />
+                </pattern>
+              </defs>
+              <rect width="440" height="330" fill="url(#grid)" />
+              <path
+                d="M90 240V98L225 46l130 60v142l-131 57z"
+                fill="#183B57"
+                stroke="#829CAF"
+                strokeWidth="1.5"
+              />
+              <path
+                d="M225 46v143L90 240 M225 189l130 59 M225 189v116"
+                stroke="#9CB1BF"
+                strokeWidth="1.5"
+              />
+              <path
+                d="M115 220V115l87-34v105z"
+                fill="#234B68"
+                stroke="#668AA1"
+              />
+              <path
+                d="M249 97l54 25v64l-54-25z"
+                fill="#F59E0B"
+                fillOpacity=".16"
+                stroke="#F59E0B"
+              />
+              <path d="M275 110v64 M249 129l54 25" stroke="#F59E0B" />
+              <path
+                d="M86 269l137 65 M81 260l9 19 M217 324l9 19 M254 312l116-51 M252 302l4 20 M365 251l9 19"
+                stroke="#F59E0B"
+                strokeWidth="1.5"
+              />
+              <text
+                x="137"
+                y="314"
+                fill="#F9BF53"
+                fontSize="13"
+                transform="rotate(25 137 314)"
+              >
+                Room length
+              </text>
+              <text
+                x="277"
+                y="306"
+                fill="#F9BF53"
+                fontSize="13"
+                transform="rotate(-25 277 306)"
+              >
+                Room width
+              </text>
+            </svg>
+            <div className="visual-footer">
+              <span className="visual-mark">↗</span>
+              <div>
+                <strong>From dimensions to decisions.</strong>
+                <p>Clear inputs. Visible formulas. Useful estimates.</p>
+              </div>
+            </div>
+          </div>
         </div>
       </section>
-
-      {/* Method transparency */}
-      <section className="bg-slate-50">
-        <div className="mx-auto max-w-5xl px-4 py-14">
-          <h2 className="text-3xl font-bold text-navy-900">How our calculators work</h2>
-          <p className="mt-3 max-w-2xl text-slate-600">
-            Most online calculators give you a number and ask you to trust it. We do it
-            differently — four promises on every tool we publish:
-          </p>
-          <div className="mt-8 grid gap-5 md:grid-cols-2">
-            {PRINCIPLES.map((p) => (
-              <div key={p.title} className="rounded-xl bg-white p-6 shadow-sm ring-1 ring-slate-200">
-                <h3 className="text-lg font-bold text-navy-900">{p.title}</h3>
-                <p className="mt-2 text-slate-600">{p.body}</p>
+      <section id="calculators" className="section-space">
+        <div className="site-container">
+          <SectionHeading
+            eyebrow="The project library"
+            title="Browse by project"
+          >
+            <p>
+              We are building these calculators one project type at a time —
+              paint and concrete are live. Everything below is honestly labeled
+              — check back as new tools go live.
+            </p>
+          </SectionHeading>
+          <div className="directory-grid">
+            {GROUPS.map((group, i) => (
+              <Card key={group.name} className="directory-card">
+                <div className="card-top">
+                  <span className="project-icon">
+                    <ProjectIcon index={i} />
+                  </span>
+                  <span className="card-index">0{i + 1}</span>
+                </div>
+                <h3>{group.name}</h3>
+                <p className="category-description">{DESCRIPTIONS[i]}</p>
+                <ul>
+                  {group.items.map((item) => (
+                    <li key={item.name}>
+                      {item.href ? (
+                        <Link href={item.href}>{item.name}</Link>
+                      ) : (
+                        <span>{item.name}</span>
+                      )}
+                      <Badge live={!!item.href} />
+                    </li>
+                  ))}
+                </ul>
+                {group.items.some((item) => item.href) && (
+                  <a
+                    className="card-bottom-link"
+                    href={
+                      i === 0
+                        ? "/tools/interior-paint-calculator/"
+                        : "/tools/concrete-calculator/"
+                    }
+                  >
+                    Start with {i === 0 ? "paint" : "concrete"}{" "}
+                    <span aria-hidden="true">→</span>
+                  </a>
+                )}
+              </Card>
+            ))}
+          </div>
+        </div>
+      </section>
+      <section id="method" className="section-space tinted-section">
+        <div className="site-container">
+          <SectionHeading
+            eyebrow="The math behind the confidence"
+            title="Why trust our numbers"
+          >
+            <p>
+              Most online calculators give you a number and ask you to trust it.
+              We do it differently — four promises on every tool we publish:
+            </p>
+          </SectionHeading>
+          <div className="principles-grid">
+            {PRINCIPLES.map((p, i) => (
+              <div key={p.title} className="principle">
+                <span className="principle-icon">
+                  <ProjectIcon index={i} />
+                </span>
+                <h3>{p.title}</h3>
+                <p>{p.body}</p>
               </div>
             ))}
           </div>
         </div>
       </section>
-
-      {/* Project guides */}
-      <section className="mx-auto max-w-5xl px-4 py-14">
-        <h2 className="text-3xl font-bold text-navy-900">Project guides</h2>
-        <p className="mt-3 max-w-2xl text-slate-600">
-          Step-by-step guides that go with our calculators — paint quantity and concrete
-          planning: coverage rates, measuring, curing, and the mistakes that waste money.
-        </p>
-        <ul className="mt-6 grid gap-3 md:grid-cols-2">
-          {[
-            { name: 'How much paint for a 12×12 room?', href: '/guides/how-much-paint-for-12x12-room/' },
-            { name: 'Paint coverage per gallon by type', href: '/guides/paint-coverage-per-gallon/' },
-            { name: 'How to measure a room for paint', href: '/guides/how-to-measure-room-for-paint/' },
-            { name: 'How many coats of paint do walls need?', href: '/guides/how-many-coats-of-paint/' },
-            { name: 'Exterior paint for a 2,000 sq ft house', href: '/guides/exterior-paint-for-2000-sq-ft-house/' },
-            { name: 'Paint cost per square foot (2026)', href: '/guides/paint-cost-per-square-foot/' },
-            { name: '7 paint quantity mistakes that waste money', href: '/guides/paint-quantity-mistakes/' },
-            { name: 'How much does a yard of concrete cover?', href: '/guides/how-much-does-a-yard-of-concrete-cover/' },
-            { name: 'Quikrete vs. ready-mix: bags or truck?', href: '/guides/quikrete-vs-ready-mix/' },
-            { name: 'Concrete curing timeline (24h to 28 days)', href: '/guides/concrete-curing-time/' },
-            { name: 'How thick should a concrete slab be?', href: '/guides/how-thick-should-concrete-slab-be/' },
-          ].map((g) => (
-            <li key={g.href}>
+      <StatsBand />
+      <ProcessSteps />
+      <section id="guides" className="section-space tinted-section">
+        <div className="site-container">
+          <SectionHeading
+            eyebrow="A little knowledge goes a long way"
+            title="Project guides"
+          >
+            <p>
+              Step-by-step guides that go with our calculators — paint quantity
+              and concrete planning: coverage rates, measuring, curing, and the
+              mistakes that waste money.
+            </p>
+          </SectionHeading>
+          <div className="guides-grid">
+            {GUIDES.map((guide, i) => (
               <Link
-                href={g.href}
-                className="block rounded-xl border border-slate-200 bg-white p-4 font-semibold text-navy-800 shadow-sm transition hover:border-accent-500 hover:text-navy-900"
+                href={guide.href}
+                key={guide.href}
+                className="premium-card guide-card"
               >
-                {g.name}
+                <span className="guide-category">
+                  {i < 7 ? "PAINT" : "CONCRETE & MASONRY"}{" "}
+                  <span>GUIDE {String(i + 1).padStart(2, "0")}</span>
+                </span>
+                <h3>{guide.name}</h3>
+                <p>{guide.excerpt}</p>
+                <span className="read-more">
+                  Read the guide <span aria-hidden="true">↗</span>
+                </span>
               </Link>
-            </li>
-          ))}
-        </ul>
+            ))}
+          </div>
+        </div>
       </section>
+      <section className="section-space">
+        <div className="site-container faq-layout">
+          <div>
+            <SectionHeading
+              eyebrow="Before you buy"
+              title="Good questions. Clear answers."
+            />
+            <p className="section-subtitle">
+              A few common paint-planning questions, answered with the same math
+              you will find in our tools.
+            </p>
+            <Link className="text-link" href="/faq/">
+              See all questions →
+            </Link>
+          </div>
+          <Faq items={homeFaqs.slice(0, 5)} />
+        </div>
+      </section>
+      <CtaBand />
     </>
-  )
+  );
 }
