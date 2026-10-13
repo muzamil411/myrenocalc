@@ -20,7 +20,8 @@ export function buildMetadata({
 }): Metadata {
   const url = canonical(path)
   return {
-    title,
+    // Fully branded titles bypass the inherited site-name template.
+    title: title.includes(SITE_NAME) ? { absolute: title } : title,
     description,
     alternates: { canonical: url },
     openGraph: {
