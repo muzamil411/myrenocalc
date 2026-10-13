@@ -1,14 +1,15 @@
 'use client'
 
-import { useState } from 'react'
+import { useId, useState } from 'react'
 import type { FaqItem } from '@/lib/seo'
 
 /** Accessible FAQ accordion. Client component (used inside MDX pages too). */
 export default function Faq({ items }: { items: FaqItem[] }) {
+  const instance = useId()
   const [open, setOpen] = useState<number | null>(0)
 
   return (
-    <div className="divide-y divide-slate-200 rounded-xl border border-slate-200 bg-white">
+    <div className="faq-accordion divide-y divide-slate-200 rounded-2xl border border-slate-200 bg-white">
       {items.map((item, i) => {
         const isOpen = open === i
         return (
@@ -17,8 +18,8 @@ export default function Faq({ items }: { items: FaqItem[] }) {
               <button
                 type="button"
                 aria-expanded={isOpen}
-                aria-controls={`faq-panel-${i}`}
-                id={`faq-button-${i}`}
+                aria-controls={`faq-panel-${instance}-${i}`}
+                id={`faq-button-${instance}-${i}`}
                 onClick={() => setOpen(isOpen ? null : i)}
                 className="flex w-full items-center justify-between gap-4 px-5 py-4 text-left font-semibold text-navy-900 hover:bg-slate-50"
               >
@@ -29,9 +30,9 @@ export default function Faq({ items }: { items: FaqItem[] }) {
               </button>
             </h3>
             <div
-              id={`faq-panel-${i}`}
+              id={`faq-panel-${instance}-${i}`}
               role="region"
-              aria-labelledby={`faq-button-${i}`}
+              aria-labelledby={`faq-button-${instance}-${i}`}
               hidden={!isOpen}
               className="px-5 pb-5 text-slate-700"
             >

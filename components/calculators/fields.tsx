@@ -32,7 +32,7 @@ export function NumberField({
           max={max}
           step={step}
           onChange={(e) => onChange(Math.max(min, Number(e.target.value) || 0))}
-          className="w-full rounded-lg border border-slate-300 px-3 py-2.5 text-navy-900 shadow-sm focus:border-accent-500 focus:outline-none focus:ring-2 focus:ring-accent-500/30"
+          className="min-h-12 min-w-0 w-full rounded-xl border border-slate-300 px-3 py-2.5 text-navy-900 shadow-sm focus:border-accent-500 focus:outline-none focus:ring-2 focus:ring-accent-500/30"
         />
         {unit && <span className="shrink-0 text-sm text-slate-500">{unit}</span>}
       </span>
@@ -121,7 +121,7 @@ export function ResultRow({
   sub?: string
 }) {
   return (
-    <div className="flex items-baseline justify-between gap-4 border-b border-slate-100 py-2.5 last:border-0">
+    <div className="result-row flex items-baseline justify-between gap-4 border-b border-slate-100 py-2.5 last:border-0">
       <dt className="text-sm text-slate-600">{label}</dt>
       <dd className="text-right">
         <span className="text-lg font-extrabold text-navy-900">{value}</span>
