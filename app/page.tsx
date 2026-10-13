@@ -25,9 +25,10 @@ const GROUPS: CalcGroup[] = [
   {
     name: 'Concrete & Masonry',
     items: [
-      { name: 'Concrete slab calculator' },
-      { name: 'Concrete bag calculator' },
-      { name: 'Gravel calculator' },
+      { name: 'Concrete slab calculator', href: '/tools/concrete-calculator/' },
+      { name: 'Concrete bag calculator', href: '/tools/concrete-bag-calculator/' },
+      { name: 'Footing concrete calculator', href: '/tools/footing-concrete-calculator/' },
+      { name: 'Gravel calculator', href: '/tools/gravel-calculator/' },
     ],
   },
   {
@@ -110,8 +111,9 @@ export default function HomePage() {
       <section id="calculators" className="mx-auto max-w-5xl scroll-mt-20 px-4 py-14">
         <h2 className="text-3xl font-bold text-navy-900">Calculator directory</h2>
         <p className="mt-3 max-w-2xl text-slate-600">
-          We are building these calculators one project type at a time, starting with paint.
-          Everything below is honestly labeled — check back as new tools go live.
+          We are building these calculators one project type at a time — paint and
+          concrete are live. Everything below is honestly labeled — check back as new tools go
+          live.
         </p>
         <div className="mt-8 grid gap-5 md:grid-cols-2">
           {GROUPS.map((group) => (
@@ -170,8 +172,8 @@ export default function HomePage() {
       <section className="mx-auto max-w-5xl px-4 py-14">
         <h2 className="text-3xl font-bold text-navy-900">Project guides</h2>
         <p className="mt-3 max-w-2xl text-slate-600">
-          Step-by-step guides that go with our calculators — starting with paint quantity:
-          coverage rates, measuring rooms, and the mistakes that waste money.
+          Step-by-step guides that go with our calculators — paint quantity and concrete
+          planning: coverage rates, measuring, curing, and the mistakes that waste money.
         </p>
         <ul className="mt-6 grid gap-3 md:grid-cols-2">
           {[
@@ -182,6 +184,10 @@ export default function HomePage() {
             { name: 'Exterior paint for a 2,000 sq ft house', href: '/guides/exterior-paint-for-2000-sq-ft-house/' },
             { name: 'Paint cost per square foot (2026)', href: '/guides/paint-cost-per-square-foot/' },
             { name: '7 paint quantity mistakes that waste money', href: '/guides/paint-quantity-mistakes/' },
+            { name: 'How much does a yard of concrete cover?', href: '/guides/how-much-does-a-yard-of-concrete-cover/' },
+            { name: 'Quikrete vs. ready-mix: bags or truck?', href: '/guides/quikrete-vs-ready-mix/' },
+            { name: 'Concrete curing timeline (24h to 28 days)', href: '/guides/concrete-curing-time/' },
+            { name: 'How thick should a concrete slab be?', href: '/guides/how-thick-should-concrete-slab-be/' },
           ].map((g) => (
             <li key={g.href}>
               <Link

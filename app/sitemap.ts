@@ -3,7 +3,8 @@ import { SITE_URL } from '@/lib/seo'
 
 export const dynamic = 'force-static'
 
-// Phase 1: paint cluster (5 calculators + 7 guides). Later phases append their routes here.
+// Phase 1: paint cluster (5 calculators + 7 guides).
+// Phase 2: concrete & masonry cluster (4 calculators + 4 guides). Later phases append here.
 const ROUTES: { path: string; changeFrequency: 'weekly' | 'monthly' | 'yearly'; priority: number }[] = [
   { path: '', changeFrequency: 'weekly', priority: 1 },
   { path: '/about/', changeFrequency: 'yearly', priority: 0.5 },
@@ -25,6 +26,16 @@ const ROUTES: { path: string; changeFrequency: 'weekly' | 'monthly' | 'yearly'; 
   { path: '/guides/exterior-paint-for-2000-sq-ft-house/', changeFrequency: 'monthly', priority: 0.7 },
   { path: '/guides/paint-cost-per-square-foot/', changeFrequency: 'monthly', priority: 0.7 },
   { path: '/guides/paint-quantity-mistakes/', changeFrequency: 'monthly', priority: 0.7 },
+  // Concrete calculators
+  { path: '/tools/concrete-calculator/', changeFrequency: 'monthly', priority: 0.9 },
+  { path: '/tools/concrete-bag-calculator/', changeFrequency: 'monthly', priority: 0.9 },
+  { path: '/tools/footing-concrete-calculator/', changeFrequency: 'monthly', priority: 0.8 },
+  { path: '/tools/gravel-calculator/', changeFrequency: 'monthly', priority: 0.8 },
+  // Concrete guides
+  { path: '/guides/how-much-does-a-yard-of-concrete-cover/', changeFrequency: 'monthly', priority: 0.8 },
+  { path: '/guides/quikrete-vs-ready-mix/', changeFrequency: 'monthly', priority: 0.8 },
+  { path: '/guides/concrete-curing-time/', changeFrequency: 'monthly', priority: 0.7 },
+  { path: '/guides/how-thick-should-concrete-slab-be/', changeFrequency: 'monthly', priority: 0.7 },
 ]
 
 export default function sitemap(): MetadataRoute.Sitemap {
