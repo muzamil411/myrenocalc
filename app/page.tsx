@@ -1,6 +1,6 @@
+import ProjectFinder from "@/components/ProjectFinder";
 import {
   Badge,
-  Button,
   Card,
   CtaBand,
   ProcessSteps,
@@ -197,64 +197,44 @@ export default function HomePage() {
         }}
       />
       <section className="home-hero">
-        <div className="site-container hero-grid">
-          <div className="hero-copy">
-            <p className="eyebrow">Free home-project calculators</p>
-            <h1>
-              Every project starts with <span>a number.</span>
-            </h1>
-            <p className="hero-description">
-              MyRenoCalc builds free calculators for real home projects — how
-              much paint to buy, how many bags of concrete you need, what the
-              flooring will cost. We show the math, cite our sources, and state
-              the limitations.
-            </p>
-            <div className="hero-actions">
-              <Button href="#calculators">Browse calculators</Button>
-              <Button href="#method" secondary>
-                How we calculate
-              </Button>
-            </div>
-            <p className="hero-microcopy">
-              <span aria-hidden="true">✓</span> 9 calculators · 11 guides ·
-              every figure sourced
-            </p>
+        <div className="hero-linework" aria-hidden="true">
+          <svg viewBox="0 0 1200 220" fill="none">
+            <path
+              d="M0 190h1200 M40 190V110l90-70 90 70v80 M72 190v-58h32v58 M154 103h30v35h-30z M285 190V95h105v95 M310 120h22v22h-22z M348 120h22v22h-22z M450 190V120l70-52 70 52v70 M480 190v-45h30v45 M670 190V75h120v115 M699 103h24v24h-24z M742 103h24v24h-24z M699 150h24v40 M870 190V110l85-65 85 65v80 M905 190v-58h32v58 M979 108h30v31h-30z M1080 190v-80h90v80"
+              stroke="currentColor"
+              strokeWidth="1.5"
+            />
+          </svg>
+        </div>
+        <div className="site-container hero-centred">
+          <p className="eyebrow hero-pill">
+            <span aria-hidden="true">✓</span> Free home-project calculators
+          </p>
+          <h1>
+            Every project starts with <span>a number.</span>
+          </h1>
+          <p className="hero-description">
+            MyRenoCalc builds free calculators for real home projects — how much
+            paint to buy, how many bags of concrete you need, what the flooring
+            will cost. We show the math, cite our sources, and state the
+            limitations.
+          </p>
+          <ProjectFinder />
+          <ul className="hero-highlights">
+            <li>
+              <span aria-hidden="true">✓</span> 9 free calculators
+            </li>
+            <li>
+              <span aria-hidden="true">✓</span> 11 practical guides
+            </li>
+            <li>
+              <span aria-hidden="true">✓</span> Formulas and sources shown
+            </li>
+          </ul>
+          <div className="hero-links">
+            <a href="#calculators">Browse calculators →</a>
+            <a href="#method">How we calculate →</a>
           </div>
-          <aside className="hero-start" aria-label="Choose a project">
-            <p className="eyebrow">Start with your project</p>
-            <h2>What are you planning?</h2>
-            <div className="quick-projects">
-              {[
-                {
-                  title: "Paint a room",
-                  detail: "Wall area, paint quantity, and primer.",
-                  href: "/tools/interior-paint-calculator/",
-                },
-                {
-                  title: "Pour a concrete slab",
-                  detail: "Cubic yards, waste allowance, and bags.",
-                  href: "/tools/concrete-calculator/",
-                },
-                {
-                  title: "Lay a gravel base",
-                  detail: "Volume, estimated weight, and compaction.",
-                  href: "/tools/gravel-calculator/",
-                },
-              ].map((project, i) => (
-                <Link key={project.href} href={project.href}>
-                  <span className="quick-number">0{i + 1}</span>
-                  <span>
-                    <strong>{project.title}</strong>
-                    <small>{project.detail}</small>
-                  </span>
-                  <span aria-hidden="true">↗</span>
-                </Link>
-              ))}
-            </div>
-            <p className="quick-note">
-              Free tools. Clear formulas. No sign-up.
-            </p>
-          </aside>
         </div>
       </section>
       <section id="calculators" className="section-space">
